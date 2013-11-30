@@ -1,5 +1,9 @@
 # ThorTemplate
 
+To these the thor_template, run these commands:
+
+
+
 TODO: Write a gem description
 
 ## Installation
