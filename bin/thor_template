@@ -6,4 +6,4 @@ $:.unshift(File.expand_path('../../lib', __FILE__))
 require 'thor_template'
 require 'thor_template/cli'
 
-ThorTemplate::CLI.start
+ThorTemplate::CLI.start(ARGV)
