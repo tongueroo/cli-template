@@ -22,7 +22,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+<pre>
+git clone https://github.com/tongueroo/thor_template.git
+mv thor_template <project_name>
+cd <project_name>
+rake rename
+rm -rf .git
+git init
+git add .
+git commit -m 'init commit'
+</pre>
 
 ## Contributing
 
