@@ -17,3 +17,7 @@ describe ThorTemplate do
     end
   end
 end
+
+VCR.configure do |config|
+  config.ignore_hosts 'codeclimate.com'
+end
