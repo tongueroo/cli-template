@@ -1,5 +1,5 @@
 require 'thor'
-require 'cli/help'
+require 'thor_template/cli/help'
 
 module ThorTemplate
 
