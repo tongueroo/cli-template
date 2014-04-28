@@ -1,8 +1,10 @@
 # ThorTemplate
 
+[![Build Status](https://magnum.travis-ci.com/)](https://magnum.travis-ci.com/)
+[![Code Climate](https://codeclimate.com/)](https://codeclimate.com/)
+[![Code Climate](https://codeclimate.com/)](https://codeclimate.com/)
+
 To these the thor_template, run these commands:
-
-
 
 TODO: Write a gem description
 

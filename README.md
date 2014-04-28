@@ -1,5 +1,9 @@
 # ThorTemplate
 
+[![Build Status](https://magnum.travis-ci.com/)](https://magnum.travis-ci.com/)
+[![Code Climate](https://codeclimate.com/)](https://codeclimate.com/)
+[![Code Climate](https://codeclimate.com/)](https://codeclimate.com/)
+
 Generator that builds a starter cli project which is based on thor.
 
 ## Installation
