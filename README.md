@@ -1,37 +1,20 @@
 # ThorTemplate
 
-To these the thor_template, run these commands:
-
-
-
-TODO: Write a gem description
+Generator that builds a starter cli project which is based on thor.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'thor_template'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install thor_template
+<pre>
+$ gem install thor_template
+</pre>
 
 ## Usage
 
 <pre>
-git clone https://github.com/tongueroo/thor_template.git
-mv thor_template <project_name>
-cd <project_name>
-rake rename
-rm -rf .git
-git init
-git add .
-git commit -m 'init commit'
+$ thor_template new hello
 </pre>
+
+This generates a starter cli project called hello.
 
 ## Contributing
 

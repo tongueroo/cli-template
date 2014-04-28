@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+
+$:.unshift(File.expand_path('../../lib', __FILE__))
+require 'thor_template'
+require 'thor_template/cli'
+
+ThorTemplate::CLI.start(ARGV)
