@@ -1,8 +1,7 @@
 # ThorTemplate
 
-[![Build Status](https://magnum.travis-ci.com/)](https://magnum.travis-ci.com/)
-[![Code Climate](https://codeclimate.com/)](https://codeclimate.com/)
-[![Code Climate](https://codeclimate.com/)](https://codeclimate.com/)
+[![Build Status](https://travis-ci.org/tongueroo/thor_template.svg?branch=generator)](https://travis-ci.org/tongueroo/thor_template)
+[![Code Climate](https://codeclimate.com/github/tongueroo/thor_template.png)](https://codeclimate.com/github/tongueroo/thor_template)
 
 Generator that builds a starter cli project which is based on thor.
 
