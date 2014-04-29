@@ -2,10 +2,14 @@ module ThorTemplate
   class CLI < Thor
     class Help
       class << self
-        def stack_common(action)
-<<-LONGDESC
-      Adds a remote named <name> for the repository at <url>. The command git fetch <name> can then be used to create and update
-LONGDESC
+        def generate
+<<-EOL
+Examples:
+
+$ thor_template new hello
+
+$ thor_template new another_project
+EOL
         end
       end
     end

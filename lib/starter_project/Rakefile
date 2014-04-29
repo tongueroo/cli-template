@@ -23,8 +23,8 @@ task :rename do
   end while dir.length > 0
   Dir["**/*"].each do |path|
     if File.file?(path)
-      `sed -i 's/thor_template/#{name}/g' #{path}`
-      `sed -i 's/ThorTemplate/#{camelize.call(name)}/g' #{path}`
+      `sed -i '' 's/thor_template/#{name}/g' #{path}`
+      `sed -i '' 's/ThorTemplate/#{camelize.call(name)}/g' #{path}`
       no_space = File.read(path).gsub(/\s+\z/, '')
       File.open(path, 'w') { |f| f.write(no_space) }
     end

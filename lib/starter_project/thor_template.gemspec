@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = ThorTemplate::VERSION
   spec.authors       = ["Tung Nguyen"]
   spec.email         = ["tongueroo@gmail.com"]
-  spec.description   = %q{Generates starter cli tool project.}
-  spec.summary       = %q{Generates starter cli tool project.}
+  spec.description   = %q{TODO: Write a gem description}
+  spec.summary       = %q{TODO: Write a gem summary}
   spec.homepage      = ""
   spec.license       = "MIT"
 
