@@ -7,12 +7,13 @@ require 'spec_helper'
 #   $ rake clean:vcr ; time rake
 describe ThorTemplate::CLI do
   before(:all) do
+    FileUtils.rm_rf("tmp/hello")
     @args = "--noop"
   end
 
   describe "new" do
     it "should generate" do
-      out = execute("bin/thor_template new hello #{@args}")
+      out = execute("cd tmp && ../bin/thor_template new hello #{@args}")
       out.should include("Created hello project!")
     end
   end

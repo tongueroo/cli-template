@@ -10,6 +10,7 @@ module ThorTemplate
       copy
       rename
       rewrite
+      git
       puts "Created #{@name} project!"
     end
 
@@ -39,6 +40,12 @@ module ThorTemplate
 
     def rewrite
       template("Rakefile", "Rakefile")
+    end
+
+    def git
+      system("cd #{@name} && git init")
+      system("cd #{@name} && git add .")
+      system("cd #{@name} && git commit -m 'first commit'")
     end
 
 private
