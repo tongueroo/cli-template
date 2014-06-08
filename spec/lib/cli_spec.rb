@@ -7,7 +7,6 @@ require 'spec_helper'
 #   $ rake clean:vcr ; time rake
 describe ThorTemplate::CLI do
   before(:all) do
-    FileUtils.rm_rf("tmp/hello")
     @args = "--noop"
   end
 

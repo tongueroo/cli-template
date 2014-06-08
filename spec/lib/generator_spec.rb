@@ -7,7 +7,6 @@ require 'spec_helper'
 #   $ rake clean:vcr ; time rake
 describe ThorTemplate::Generator do
   before(:each) do
-    FileUtils.rm_rf("tmp/hello")
     options = {
       name: "tmp/hello"
     }
