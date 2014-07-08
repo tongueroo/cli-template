@@ -3,21 +3,6 @@ require 'thor_template/cli/help'
 
 module ThorTemplate
 
-  class Remote < Thor
-    desc "add <name> <url>", "Adds a remote named <name> for the repository at <url>"
-    long_desc Help.remote_add
-    option :t, :banner => "<branch>"
-    option :m, :banner => "<master>"
-    options :f => :boolean, :tags => :boolean, :mirror => :string
-    def add(name, url)
-      # implement git remote add
-    end
- 
-    desc "rename <old> <new>", "Rename the remote named <old> to <new>"
-    def rename(old, new)
-    end
-  end
-
   class CLI < Thor
     class_option :verbose, :type => :boolean
 
@@ -35,7 +20,5 @@ module ThorTemplate
       # implement git fetch here
     end
  
-    desc "remote SUBCOMMAND ...ARGS", "manage set of tracked repositories"
-    subcommand "remote", Remote
   end
 end
