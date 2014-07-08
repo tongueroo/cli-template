@@ -15,7 +15,7 @@ describe ThorTemplate::Generator do
 
   it "should generate" do
     @generator.run
-    File.exist?("tmp/hello").should be_true
-    File.exist?("tmp/hello/hello.gemspec").should be_true
+    expect(File.exist?("tmp/hello")).to be_truthy
+    expect(File.exist?("tmp/hello/hello.gemspec")).to be_truthy
   end
 end

@@ -13,7 +13,7 @@ describe ThorTemplate::CLI do
   describe "new" do
     it "should generate" do
       out = execute("cd tmp && ../bin/thor_template new hello #{@args}")
-      out.should include("Created hello project!")
+      expect(out).to include("Created hello project!")
     end
   end
 end
