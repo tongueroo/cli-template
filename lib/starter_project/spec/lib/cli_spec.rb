@@ -7,13 +7,13 @@ require 'spec_helper'
 #   $ rake clean:vcr ; time rake
 describe ThorTemplate::CLI do
   before(:all) do
-    @args = "--noop"
+    @args = "--from Tung"
   end
 
   describe "thor_template" do
-    it "should create base" do
-      out = execute("bin/thor_template base #{@args}")
-      out.should include("Creating base thor_template!")
+    it "should hello world" do
+      out = execute("bin/thor_template hello world #{@args}")
+      expect(out).to include("from: Tung\nHello world")
     end
   end
 end

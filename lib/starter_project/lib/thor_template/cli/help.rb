@@ -2,9 +2,9 @@ module ThorTemplate
   class CLI < Thor
     class Help
       class << self
-        def hello(action)
+        def hello
 <<-EOL
-Adds a remote named <name> for the repository at <url>. The command git fetch <name> can then be used to create and update
+Hello world example
 EOL
         end
       end
