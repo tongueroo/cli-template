@@ -39,7 +39,7 @@ thor_template new my_project
 
 Then then I rename 3 spots:
 
-* my_project.gemspec - Change the name from my_project to my-project.  The require in the file also. So the gem name has a dash.
-* bin/my_project - Change the name from bin/my_project to bin/my-project.  So the binary has a dash.
-* lib/my_project.rb - Change the name from bin/my_project.rb to bin/my-project.rb. So if the project is required it is `require my-project`.
+* my_project.gemspec - Change the name from my_project to my-project.  So the gem name has a dash.
+* bin/my_project - Change the name from bin/my_project to bin/my-project.  So the binary has a dash.  The require in the file also. 
+* lib/my_project.rb - Change the name from lib/my_project.rb to lib/my-project.rb. So if the project is required it is `require my-project`.
 * spec/spec_helper.rb - Change the require lib/my_project.rb to lib/my-project.rb. And spec/lib/cli_spec.  So the test passes.

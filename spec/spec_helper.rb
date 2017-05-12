@@ -6,11 +6,11 @@
 ENV['VCR'] ? ENV['VCR'] : ENV['VCR'] = '1'
 ENV['TEST'] = '1'
 
-require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
+require 'simplecov'
+SimpleCov.start
 
 require "pp"
- 
+
 root = File.expand_path('../../', __FILE__)
 require "#{root}/lib/thor_template"
 
