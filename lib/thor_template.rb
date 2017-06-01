@@ -3,6 +3,7 @@ require "thor/vcr" if ENV['VCR'] == '1'
 require "thor_template/cli"
 
 module ThorTemplate
+  autoload :Command, 'thor_template/command'
   autoload :Version, 'thor_template/version'
   autoload :Generator, 'thor_template/generator'
 end
