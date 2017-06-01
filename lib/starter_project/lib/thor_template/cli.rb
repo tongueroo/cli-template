@@ -3,7 +3,7 @@ require 'thor_template/cli/help'
 
 module ThorTemplate
 
-  class CLI < Thor
+  class CLI < Command
     class_option :verbose, type: :boolean
     class_option :noop, type: :boolean
 

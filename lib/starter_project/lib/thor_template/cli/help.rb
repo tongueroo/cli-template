@@ -1,5 +1,5 @@
 module ThorTemplate
-  class CLI < Thor
+  class CLI < Command
     class Help
       class << self
         def hello
