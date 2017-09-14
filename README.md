@@ -1,3 +1,5 @@
+[![Build Thor CLI Project in Under a Second](https://img.youtube.com/vi/KFbu04eQ-b0/0.jpg)](https://www.youtube.com/watch?v=KFbu04eQ-b0)
+
 # ThorTemplate
 
 [![Build Status](https://travis-ci.org/tongueroo/thor_template.svg?branch=generator)](https://travis-ci.org/tongueroo/thor_template)
