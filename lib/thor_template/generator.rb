@@ -1,3 +1,5 @@
+require 'fileutils'
+
 module ThorTemplate
   class Generator
     attr_reader :options
