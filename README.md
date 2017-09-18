@@ -1,4 +1,4 @@
-[![Build Thor CLI Project in Under a Second](https://img.youtube.com/vi/KFbu04eQ-b0/0.jpg)](https://www.youtube.com/watch?v=KFbu04eQ-b0)
+[![Build Thor CLI Project in Under a Second](https://img.youtube.com/vi/KFbu04eQ-b0/0.jpg)](https://www.youtube.com/watch?v=GcVhdoneZYk)
 
 # ThorTemplate
 
