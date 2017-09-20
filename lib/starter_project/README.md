@@ -12,7 +12,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'thor_template'
+    gem "thor_template"
 
 And then execute:
 
@@ -32,13 +32,13 @@ rake rename
 rm -rf .git
 git init
 git add .
-git commit -m 'init commit'
+git commit -m "init commit"
 </pre>
 
 ## Contributing
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
+3. Commit your changes (`git commit -am "Add some feature"`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request

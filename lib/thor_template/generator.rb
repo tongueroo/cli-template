@@ -1,17 +1,20 @@
 require 'fileutils'
+require 'colorize'
+require 'active_support/core_ext/string'
+require "byebug"
 
 module ThorTemplate
   class Generator
     attr_reader :options
     def initialize(options={})
       @options = options
+      Dir.chdir(options[:cwd]) if options[:cwd]
       @name = options[:name]
     end
 
     def run
       copy
       rename
-      rewrite
       git
       puts "Created #{@name} project!"
     end
@@ -26,9 +29,9 @@ module ThorTemplate
         dest = "#{project_root}/#{dest}"
 
         if File.exist?(dest) and !options[:force]
-          puts "already exists: #{dest}" unless options[:quiet]
+          puts "already exists: #{dest}".colorize(:yellow) unless options[:quiet]
         else
-          puts "creating: #{dest}" unless options[:quiet]
+          puts "creating: #{dest}".colorize(:green) unless options[:quiet]
           dirname = File.dirname(dest)
           FileUtils.mkdir_p(dirname) unless File.exist?(dirname)
           FileUtils.cp(src, dest)
@@ -37,11 +40,7 @@ module ThorTemplate
     end
 
     def rename
-      system("cd #{@name} && rake rename")
-    end
-
-    def rewrite
-      template("Rakefile", "Rakefile")
+      Renamer.new(@name).rename!
     end
 
     def git

@@ -27,7 +27,8 @@ RSpec.configure do |c|
   c.include Helpers
   c.before(:all) do
     FileUtils.mkdir('tmp') unless File.exist?('tmp')
-    FileUtils.rm_rf("tmp/hello")
+    FileUtils.rm_rf("tmp")
+    FileUtils.mkdir("tmp")
   end
   c.around(:each) do |example|
     VCR.use_cassette(example.metadata[:full_description], :serialize_with => :json) do
