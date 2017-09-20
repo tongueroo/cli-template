@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "thor_template/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "thor_template"
+  spec.name          = "USER_PROVIDED_NAME"
   spec.version       = ThorTemplate::VERSION
   spec.authors       = ["Tung Nguyen"]
   spec.email         = ["tongueroo@gmail.com"]
