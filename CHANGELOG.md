@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 This project *tries* to adhere to [Semantic Versioning](http://semver.org/), even before v1.0.
 
+## [2.0.0]
+
+- Fix project names that are named with dashes and camel case.
+- Add legit specs that test each case.
+
 ## [1.0.1]
 
 - require "fileutils" fix
