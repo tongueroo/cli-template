@@ -10,9 +10,9 @@ describe ThorTemplate::CLI do
     @args = "--from Tung"
   end
 
-  describe "PROVIDED_NAME" do
+  describe "USER_PROVIDED_NAME" do
     it "should hello world" do
-      out = execute("bin/PROVIDED_NAME hello world #{@args}")
+      out = execute("bin/USER_PROVIDED_NAME hello world #{@args}")
       expect(out).to include("from: Tung\nHello world")
     end
   end

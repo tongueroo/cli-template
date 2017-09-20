@@ -68,7 +68,7 @@ module ThorTemplate
       result = content.map do |line|
         line = line.gsub(/ThorTemplate/, @name.underscore.camelize)
         line = line.gsub(/thor_template/, @name.underscore)
-        line = line.gsub("PROVIDED_NAME", @name) # special case
+        line = line.gsub("USER_PROVIDED_NAME", @name) # special case
         line
       end
       IO.write(path, result.join(''))

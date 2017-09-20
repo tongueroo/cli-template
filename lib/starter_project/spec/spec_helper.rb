@@ -6,7 +6,7 @@ SimpleCov.start
 require "pp"
 
 root = File.expand_path("../../", __FILE__)
-require "#{root}/lib/PROVIDED_NAME"
+require "#{root}/lib/USER_PROVIDED_NAME"
 
 module Helpers
   def execute(cmd)
