@@ -1,5 +1,5 @@
-require 'thor'
-require 'thor_template/cli/help'
+require "thor"
+require "thor_template/cli/help"
 
 module ThorTemplate
 
@@ -9,7 +9,7 @@ module ThorTemplate
 
     desc "hello NAME", "say hello to NAME"
     long_desc Help.hello
-    option :from, desc: 'from person'
+    option :from, desc: "from person"
     def hello(name)
       puts "from: #{options[:from]}" if options[:from]
       puts "Hello #{name}"

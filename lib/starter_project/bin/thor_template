@@ -7,8 +7,8 @@ Signal.trap("INT") {
   exit
 }
 
-$:.unshift(File.expand_path('../../lib', __FILE__))
-require 'thor_template'
-require 'thor_template/cli'
+$:.unshift(File.expand_path("../../lib", __FILE__))
+require "PROVIDED_NAME"
+require "thor_template/cli"
 
 ThorTemplate::CLI.start(ARGV)
