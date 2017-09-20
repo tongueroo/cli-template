@@ -8,6 +8,7 @@ module ThorTemplate
     attr_reader :options
     def initialize(options={})
       @options = options
+      Dir.chdir(options[:cwd]) if options[:cwd]
       @name = options[:name]
     end
 
@@ -28,9 +29,9 @@ module ThorTemplate
         dest = "#{project_root}/#{dest}"
 
         if File.exist?(dest) and !options[:force]
-          puts "already exists: #{dest}" unless options[:quiet]
+          puts "already exists: #{dest}".colorize(:yellow) unless options[:quiet]
         else
-          puts "creating: #{dest}" unless options[:quiet]
+          puts "creating: #{dest}".colorize(:green) unless options[:quiet]
           dirname = File.dirname(dest)
           FileUtils.mkdir_p(dirname) unless File.exist?(dirname)
           FileUtils.cp(src, dest)
@@ -39,28 +40,17 @@ module ThorTemplate
     end
 
     def rename
-      puts "Renaming...".colorize(:green)
       Dir.chdir(@name) do
         Dir.glob("**/*") do |path|
           next unless File.file?(path)
-          if path =~ /thor_template\.rb/
-            puts(("*" * 30).colorize(:red))
-            # byebug
-          end
-          puts path
           rename_content(path)
-        end
 
-        paths = Dir.glob("**/*").to_a
-        paths.sort_by { |p| p.length * -1 }.each do |path|
           next unless File.file?(path)
           rename_path(path)
-        end
+        end # Dir.glob
+
+        remove_empty_directories
       end
-      puts "Renaming Done".colorize(:green)
-
-
-      # system("cd #{@name} && rake rename")
     end
 
     def rename_content(path)
@@ -74,24 +64,24 @@ module ThorTemplate
       IO.write(path, result.join(''))
     end
 
-    def require_case_content(line)
-      line = line.strip
-      line == 'require "thor_template"' ||
-      line == 'require "#{root}/lib/thor_template"'
-    end
-
     def rename_path(src)
-      dest = if require_case_path(src)
+      dest = if special_rename?(src)
         src.gsub(/thor_template/, @name)
       else
         src.gsub(/thor_template/, @name.underscore)
       end
-      puts "mv #{src} #{dest}".colorize(:red)
+
       folder = File.dirname(dest)
       FileUtils.mkdir_p(folder) unless File.exist?(folder)
       FileUtils.mv(src, dest) unless src == dest
+    end
 
-      remove_empty_directories
+    def special_rename?(path)
+      %w[
+        thor_template.gemspec
+        bin/thor_template
+        lib/thor_template.rb
+      ].include?(path)
     end
 
     def remove_empty_directories
@@ -99,14 +89,6 @@ module ThorTemplate
         select { |d| File.directory? d }.
         select { |d| (Dir.entries(d) - %w[ . .. ]).empty? }.
         each   { |d| Dir.rmdir d }
-    end
-
-    def require_case_path(path)
-      %w[
-        thor_template.gemspec
-        bin/thor_template
-        lib/thor_template.rb
-      ].include?(path)
     end
 
     def git
