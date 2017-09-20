@@ -10,7 +10,7 @@ TODO: Write a gem description
 
 ## Installation
 
-Add this line to your application"s Gemfile:
+Add this line to your application's Gemfile:
 
     gem "thor_template"
 
