@@ -22,7 +22,7 @@ describe ThorTemplate::CLI do
 
     context("underscored name") do
       it "should generate" do
-        out = execute("cd tmp && ../bin/thor_template my_cli #{@args}")
+        out = execute("cd tmp && ../bin/thor_template new my_cli #{@args}")
         expect(out).to include("Created my_cli project!")
         out = execute("cd tmp/my_cli && rake")
         expect(out).to include("0 failures")
