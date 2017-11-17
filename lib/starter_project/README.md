@@ -12,28 +12,26 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem "thor_template"
+```sh
+gem "thor_template"
+```
 
 And then execute:
 
-    $ bundle
+```sh
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install thor_template
-
+```sh
+$ gem install thor_template
+```
 ## Usage
 
-<pre>
-git clone https://github.com/tongueroo/thor_template.git
-mv thor_template <project_name>
-cd <project_name>
-rake rename
-rm -rf .git
-git init
-git add .
-git commit -m "init commit"
-</pre>
+```sh
+bin/thor_template hello yourname
+```
 
 ## Contributing
 

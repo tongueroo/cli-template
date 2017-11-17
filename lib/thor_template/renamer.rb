@@ -53,11 +53,15 @@ module ThorTemplate
     # Thanks https://stackoverflow.com/users/123094/db
     # https://stackoverflow.com/questions/1290670/ruby-how-do-i-recursively-find-and-remove-empty-directories
     def remove_empty_directories
-      Dir['**/*'].
-        select { |d| File.directory? d }.
-        select { |d| (Dir.entries(d) - %w[ . .. ]).empty? }.
-        each   { |d| Dir.rmdir d }
+      until empty_directories.empty?
+        empty_directories.each { |d| Dir.rmdir(d) }
+      end
     end
 
+    def empty_directories
+      Dir['**/*'].
+        select { |d| File.directory? d }.
+        select { |d| (Dir.entries(d) - %w[ . .. ]).empty? }.to_a
+    end
   end
 end
