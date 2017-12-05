@@ -6,8 +6,8 @@
 ENV['VCR'] ? ENV['VCR'] : ENV['VCR'] = '1'
 ENV['TEST'] = '1'
 
-require 'simplecov'
-SimpleCov.start
+# require 'simplecov'
+# SimpleCov.start
 
 require "pp"
 
