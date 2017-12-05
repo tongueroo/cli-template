@@ -45,7 +45,7 @@ module ThorTemplate
     def special_rename?(path)
       %w[
         thor_template.gemspec
-        bin/thor_template
+        exe/thor_template
         lib/thor_template.rb
       ].include?(path)
     end

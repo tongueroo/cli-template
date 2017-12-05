@@ -30,7 +30,7 @@ $ gem install thor_template
 ## Usage
 
 ```sh
-bin/thor_template hello yourname
+exe/thor_template hello yourname
 ```
 
 ## Contributing

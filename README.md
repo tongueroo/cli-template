@@ -18,7 +18,7 @@ gem install thor_template
 ```sh
 thor_template new mycli
 cd mycli
-bin/mycli hello world
+exe/mycli hello world
 ```
 
 The above generated a starter CLI project called mycli with a working hello command.  The generated project also has starter specs for you 😁
