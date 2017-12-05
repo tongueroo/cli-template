@@ -1,16 +1,12 @@
-require "thor"
-require "thor_template/cli/help"
-
 module ThorTemplate
-
   class CLI < Command
     class_option :verbose, type: :boolean
     class_option :noop, type: :boolean
 
     desc "hello NAME", "say hello to NAME"
-    long_desc Help.hello
+    long_desc Help.text(:hello)
     option :from, desc: "from person"
-    def hello(name)
+    def hello(name="you")
       puts "from: #{options[:from]}" if options[:from]
       puts "Hello #{name}"
     end
