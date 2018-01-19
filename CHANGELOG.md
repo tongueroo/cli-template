@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project *tries* to adhere to [Semantic Versioning](http://semver.org/), even before v1.0.
 
+## [2.1.1]
+
+- starter project use version 0.1.0
+
 ## [2.1.0]
 
 - improve help class
