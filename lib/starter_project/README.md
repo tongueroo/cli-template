@@ -4,8 +4,6 @@
 [![Code Climate](https://codeclimate.com/)](https://codeclimate.com/)
 [![Code Climate](https://codeclimate.com/)](https://codeclimate.com/)
 
-To these the thor_template, run these commands:
-
 TODO: Write a gem description
 
 ## Installation
@@ -13,7 +11,7 @@ TODO: Write a gem description
 Add this line to your application's Gemfile:
 
 ```sh
-gem "thor_template"
+gem "USER_PROVIDED_NAME"
 ```
 
 And then execute:
@@ -25,12 +23,12 @@ $ bundle
 Or install it yourself as:
 
 ```sh
-$ gem install thor_template
+$ gem install USER_PROVIDED_NAME
 ```
 ## Usage
 
 ```sh
-exe/thor_template hello yourname
+USER_PROVIDED_NAME hello yourname
 ```
 
 ## Contributing
