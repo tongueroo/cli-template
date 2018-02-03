@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project *tries* to adhere to [Semantic Versioning](http://semver.org/), even before v1.0.
 
+## [2.2.1]
+- add -v as a version flag too
+
 ## [2.2.0]
 - simple help formatting
 - add version command
