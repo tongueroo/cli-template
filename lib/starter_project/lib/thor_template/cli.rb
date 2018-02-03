@@ -11,5 +11,9 @@ module ThorTemplate
       puts "Hello #{name}"
     end
 
+    desc "version", "prints version"
+    def version
+      puts ThorTemplate::VERSION
+    end
   end
 end

@@ -18,6 +18,14 @@ module ThorTemplate
           args -= help_flags
           args.insert(-2, "help")
         end
+
+        #   thor_template version
+        #   thor_template --version
+        version_flags = ["--version"]
+        if args.length == 1 && !(args & version_flags).empty?
+          args = ["version"]
+        end
+
         super
       end
     end

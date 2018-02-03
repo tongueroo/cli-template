@@ -8,5 +8,10 @@ module ThorTemplate
     def new(name)
       Generator.new(options.merge(name: name)).run
     end
+
+    desc "version", "prints version"
+    def version
+      puts ThorTemplate::VERSION
+    end
   end
 end
