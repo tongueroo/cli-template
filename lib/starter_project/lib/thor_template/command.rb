@@ -34,7 +34,8 @@ module ThorTemplate
 
         #   thor_template version
         #   thor_template --version
-        version_flags = ["--version"]
+        #   thor_template -v
+        version_flags = ["--version", "-v"]
         if args.length == 1 && !(args & version_flags).empty?
           args = ["version"]
         end
