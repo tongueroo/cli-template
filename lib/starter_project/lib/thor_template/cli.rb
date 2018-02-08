@@ -13,7 +13,7 @@ module ThorTemplate
 
     desc "version", "prints version"
     def version
-      puts ThorTemplate::VERSION
+      puts VERSION
     end
   end
 end

@@ -6,6 +6,12 @@
 
 TODO: Write a gem description
 
+## Usage
+
+```sh
+USER_PROVIDED_NAME hello yourname
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -25,12 +31,6 @@ Or install it yourself as:
 ```sh
 $ gem install USER_PROVIDED_NAME
 ```
-## Usage
-
-```sh
-USER_PROVIDED_NAME hello yourname
-```
-
 ## Contributing
 
 1. Fork it
