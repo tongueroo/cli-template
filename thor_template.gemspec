@@ -20,7 +20,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "thor"
-  spec.add_dependency "hashie"
   spec.add_dependency "colorize"
   spec.add_dependency "activesupport"
 

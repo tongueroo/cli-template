@@ -3,15 +3,15 @@ module ThorTemplate
     class_option :verbose, :type => :boolean
     class_option :noop, :type => :boolean
 
-    desc "new NAME", "generates project based on thor template"
     long_desc Help.text(:new)
-    def new(name)
-      Generator.new(options.merge(name: name)).run
+    New.cli_options.each do |args|
+      option *args
     end
+    register(New, "new", "new", "generates new CLI project")
 
     desc "version", "prints version"
     def version
-      puts ThorTemplate::VERSION
+      puts VERSION
     end
   end
 end

@@ -6,6 +6,6 @@ module ThorTemplate
   autoload :Help, 'thor_template/help'
   autoload :Command, 'thor_template/command'
   autoload :Version, 'thor_template/version'
-  autoload :Generator, 'thor_template/generator'
-  autoload :Renamer, 'thor_template/renamer'
+  autoload :Sequence, 'thor_template/sequence'
+  autoload :New, 'thor_template/new'
 end
