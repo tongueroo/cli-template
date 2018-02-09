@@ -1,9 +1,3 @@
-# Running specs by default will use VCR.
-# Can disable via: VCR=0 rake or clean out vcr fixtures via rake clean:vcr.
-# Using a ENV VCR flag so that both ruby and cli specs always either use
-# vcr or do not use vcr.  It's confusing to only have only ruby use vcr
-# and cli specs not using vcr and vice versa.
-ENV['VCR'] ? ENV['VCR'] : ENV['VCR'] = '1'
 ENV['TEST'] = '1'
 
 # require 'simplecov'
@@ -30,13 +24,4 @@ RSpec.configure do |c|
     FileUtils.rm_rf("tmp")
     FileUtils.mkdir("tmp")
   end
-  c.around(:each) do |example|
-    VCR.use_cassette(example.metadata[:full_description], :serialize_with => :json) do
-      example.run
-    end if ENV['VCR'] == '1'
-  end
-end
-
-VCR.configure do |config|
-  config.ignore_hosts 'codeclimate.com'
 end

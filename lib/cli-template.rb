@@ -1,5 +1,4 @@
 $:.unshift(File.expand_path("../", __FILE__))
-require "thor/vcr" if ENV['VCR'] == '1'
 require "cli-template/version"
 
 module CliTemplate

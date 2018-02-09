@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = CliTemplate::VERSION
   spec.authors       = ["Tung Nguyen"]
   spec.email         = ["tongueroo@gmail.com"]
-  spec.description   = %q{Generates starter CLI tool project.}
-  spec.summary       = %q{Generates starter CLI tool project.}
-  spec.homepage      = ""
+  spec.description   = %q{Generates a CLI tool quickly}
+  spec.summary       = %q{Generates a CLI tool quickly}
+  spec.homepage      = "https://gitub.com/tongueroo/cli-template"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -23,9 +23,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency "colorize"
   spec.add_dependency "activesupport"
 
-  spec.add_development_dependency "bundler", "~> 1.3"
+  spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency "thor-vcr"
+  # spec.add_development_dependency "thor-vcr"
   spec.add_development_dependency "guard"
   spec.add_development_dependency "guard-bundler"
   spec.add_development_dependency "guard-rspec"

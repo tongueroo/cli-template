@@ -1,6 +1,4 @@
-[![Build Thor CLI Project in Under a Second](https://img.youtube.com/vi/GcVhdoneZYk/0.jpg)](https://www.youtube.com/watch?v=GcVhdoneZYk)
-
-# CliTemplate
+# CLI Template
 
 [![Build Status](https://travis-ci.org/tongueroo/cli-template.svg?branch=generator)](https://travis-ci.org/tongueroo/cli-template)
 [![Code Climate](https://codeclimate.com/github/tongueroo/cli-template.png)](https://codeclimate.com/github/tongueroo/cli-template)
