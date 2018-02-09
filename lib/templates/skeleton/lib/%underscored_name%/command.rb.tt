@@ -58,7 +58,7 @@ module <%= project_class_name %>
 
           class_name = path
                         .sub(/\.rb$/,'')
-                        .sub(%r{.*/<%= project_name %>}, '<%= project_name %>')
+                        .sub(%r{.*/<%= underscored_name %>}, '<%= underscored_name %>')
                         .classify
 
           # special mapping cases

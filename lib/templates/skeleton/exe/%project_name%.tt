@@ -9,6 +9,6 @@ Signal.trap("INT") {
 
 $:.unshift(File.expand_path("../../lib", __FILE__))
 require "<%= project_name %>"
-require "<%= project_name %>/cli"
+require "<%= underscored_name %>/cli"
 
 <%= project_class_name %>::CLI.start(ARGV)

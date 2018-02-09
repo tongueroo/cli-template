@@ -1,10 +1,10 @@
 $:.unshift(File.expand_path("../", __FILE__))
-require "<%= project_name %>/version"
+require "<%= underscored_name %>/version"
 
 module <%= project_class_name %>
-  autoload :Help, "<%= project_name %>/help"
-  autoload :Command, "<%= project_name %>/command"
-  autoload :RakeCommand, "<%= project_name %>/rake_command"
-  autoload :CLI, "<%= project_name %>/cli"
-  autoload :Sub, "<%= project_name %>/sub"
+  autoload :Help, "<%= underscored_name %>/help"
+  autoload :Command, "<%= underscored_name %>/command"
+  autoload :RakeCommand, "<%= underscored_name %>/rake_command"
+  autoload :CLI, "<%= underscored_name %>/cli"
+  autoload :Sub, "<%= underscored_name %>/sub"
 end
