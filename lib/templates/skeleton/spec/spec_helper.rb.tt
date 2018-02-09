@@ -10,10 +10,16 @@ require "#{root}/lib/<%= project_name %>"
 
 module Helpers
   def execute(cmd)
-    puts "Running: #{cmd}" if ENV["DEBUG"]
+    puts "Running: #{cmd}" if show_command?
     out = `#{cmd}`
-    puts out if ENV["DEBUG"]
+    puts out if show_command?
     out
+  end
+
+  # Added SHOW_COMMAND because DEBUG is also used by other libraries like
+  # bundler and it shows its internal debugging logging also.
+  def show_command?
+    ENV['DEBUG'] || ENV['SHOW_COMMAND']
   end
 end
 

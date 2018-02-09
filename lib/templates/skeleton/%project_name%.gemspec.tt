@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = <%= project_class_name %>::VERSION
   spec.authors       = ["Tung Nguyen"]
   spec.email         = ["tongueroo@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = ENV['TEST'] ? "test" : "TODO: Write a gem description"
+  spec.summary       = ENV['TEST'] ? "test" : "TODO: Write a gem summary"
   spec.homepage      = ""
   spec.license       = "MIT"
 

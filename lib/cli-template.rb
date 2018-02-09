@@ -3,6 +3,7 @@ require "cli-template/version"
 
 module CliTemplate
   autoload :Help, 'cli-template/help'
+  autoload :CLI, 'cli-template/cli'
   autoload :Command, 'cli-template/command'
   autoload :Version, 'cli-template/version'
   autoload :Sequence, 'cli-template/sequence'

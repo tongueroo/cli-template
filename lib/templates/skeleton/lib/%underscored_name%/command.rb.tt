@@ -62,7 +62,7 @@ module <%= project_class_name %>
                         .classify
 
           if class_name.include?('-')
-            puts "WARN: Unable to autoload a class with a dash in the name" if ENV['DEBUG']
+            puts "WARN: Unable to autoload a class with a dash in the name" if debug?
             next
           end
 
@@ -73,7 +73,7 @@ module <%= project_class_name %>
           }
           class_name = special_cases[class_name] || class_name
 
-          puts "eager_load! loading path: #{path} class_name: #{class_name}" if ENV['DEBUG']
+          puts "eager_load! loading path: #{path} class_name: #{class_name}" if debug?
           class_name.constantize # dont have to worry about order.
         end
       end
@@ -154,6 +154,10 @@ module <%= project_class_name %>
         rescue Thor::AmbiguousCommandError => e
           full_command # return original full_command
         end
+      end
+
+      def debug?
+        ENV['DEBUG'] && !ENV['TEST']
       end
     end
   end
