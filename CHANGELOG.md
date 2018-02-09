@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 This project *tries* to adhere to [Semantic Versioning](http://semver.org/), even before v1.0.
 
+## [3.0.0]
+- tool is now called cli-template
+- namespaced commands support
+- using Thor::Group as the generator
+
 ## [2.2.1]
 - add -v as a version flag too
 
