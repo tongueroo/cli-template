@@ -46,6 +46,7 @@ jobs:
       - run:
           name: run tests
           command: |
+            gem install bundler # think need this because the specs shell out
             mkdir /tmp/test-results
             bundle exec rspec
 
