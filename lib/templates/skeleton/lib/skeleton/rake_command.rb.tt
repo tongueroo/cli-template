@@ -1,8 +1,8 @@
 require "rake"
 
-class Skeleton::RakeCommand
+class <%= project_class_name %>::RakeCommand
   class << self
-    # Same signature as Skeleton::Command.perform.
+    # Same signature as <%= project_class_name %>::Command.perform.
     def perform(namespaced_command, thor_args)
       if thor_args.first == "help"
         puts help_message(namespaced_command)

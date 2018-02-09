@@ -1,4 +1,4 @@
-module Skeleton
+module <%= project_class_name %>
   class Sub < Command
 
     desc "goodbye NAME", "say goodbye to NAME"

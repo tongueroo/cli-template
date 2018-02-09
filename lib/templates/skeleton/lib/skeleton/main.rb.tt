@@ -1,6 +1,6 @@
 require "thor"
 
-module Skeleton
+module <%= project_class_name %>
   class Main < Command
     class_option :verbose, type: :boolean
     class_option :noop, type: :boolean

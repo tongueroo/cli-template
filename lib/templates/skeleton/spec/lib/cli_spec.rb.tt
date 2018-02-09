@@ -5,7 +5,7 @@ require "spec_helper"
 #
 # to run specs with new fresh data from aws api calls
 #   $ rake clean:vcr ; time rake
-describe Skeleton::CLI do
+describe <%= project_class_name %>::CLI do
   before(:all) do
     @args = "--from Tung"
   end

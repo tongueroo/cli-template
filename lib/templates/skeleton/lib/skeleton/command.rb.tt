@@ -15,7 +15,7 @@ class Thor
   end
 end
 
-module Skeleton
+module <%= project_class_name %>
   class Command < Thor
     class << self
       # thor_args is an array of commands. Examples:
@@ -27,8 +27,8 @@ module Skeleton
       # To call a thor task via ruby.
       # Signature is a little weird with the repetition, examples:
       #
-      #   Skeleton::Main.perform("hello", ["hello"])
-      #   Skeleton::Main.perform("dynamodb:migrate", ["migrate"])
+      #   <%= project_class_name %>::Main.perform("hello", ["hello"])
+      #   <%= project_class_name %>::Main.perform("dynamodb:migrate", ["migrate"])
       #
       def perform(full_command, thor_args)
         config = {} # doesnt seem like config is used
@@ -63,8 +63,8 @@ module Skeleton
 
           # special mapping cases
           special_cases = {
-            "Skeleton::Cli" => "Skeleton::CLI",
-            "Skeleton::Version" => "Skeleton::VERSION",
+            "<%= project_class_name %>::Cli" => "<%= project_class_name %>::CLI",
+            "<%= project_class_name %>::Version" => "<%= project_class_name %>::VERSION",
           }
           class_name = special_cases[class_name] || class_name
 
@@ -81,14 +81,14 @@ module Skeleton
         eager_load!
         subclasses.map do |klass|
           klass.all_tasks.keys.map do |task_name|
-            klass = klass.to_s.sub('Skeleton::','')
+            klass = klass.to_s.sub('<%= project_class_name %>::','')
             namespace = klass =~ /^Main/ ? nil : klass.underscore.gsub('/',':')
             [namespace, task_name].compact.join(':')
           end
         end.flatten.sort
       end
 
-      # Use Skeleton banner instead of Thor to account for namespaces in commands.
+      # Use <%= project_class_name %> banner instead of Thor to account for namespaces in commands.
       def banner(command, namespace = nil, subcommand = false)
         namespace = namespace_from_class(self)
         command_name = command.usage # set with desc when defining tht Thor class
@@ -98,7 +98,7 @@ module Skeleton
       end
 
       def namespace_from_class(klass)
-        namespace = klass.to_s.sub('Skeleton::', '').underscore.gsub('/',':')
+        namespace = klass.to_s.sub('<%= project_class_name %>::', '').underscore.gsub('/',':')
         namespace unless namespace == "main"
       end
 
@@ -121,10 +121,10 @@ module Skeleton
 
       def klass_from_namespace(namespace)
         if namespace.nil?
-          Skeleton::Main
+          <%= project_class_name %>::Main
         else
           class_name = namespace.gsub(':','/')
-          class_name = "Skeleton::#{class_name.classify}"
+          class_name = "<%= project_class_name %>::#{class_name.classify}"
           class_name.constantize
         end
       end

@@ -2,13 +2,13 @@ require "thor"
 require "active_support" # for autoload
 require "active_support/core_ext"
 
-class Skeleton::CLI
+class <%= project_class_name %>::CLI
   def self.start(given_args=ARGV)
     new(given_args).start
   end
 
   def self.thor_tasks
-    Skeleton::Command.namespaced_commands
+    <%= project_class_name %>::Command.namespaced_commands
   end
 
   def initialize(given_args=ARGV, **config)
@@ -65,21 +65,21 @@ class Skeleton::CLI
     # Also remove "help" flag.
     args = @given_args.reject {|o| o =~ /^-/ } - help_flags
     command = args[0] # first argument should always be the command
-    Skeleton::Command.autocomplete(command)
+    <%= project_class_name %>::Command.autocomplete(command)
   end
 
   # 1. look up Thor tasks
   # 2. look up Rake tasks
   # 3. help menu with all commands when both Thor and Rake tasks are not found
   def lookup(full_command)
-    thor_task_found = Skeleton::Command.namespaced_commands.include?(full_command)
+    thor_task_found = <%= project_class_name %>::Command.namespaced_commands.include?(full_command)
     if thor_task_found
-      return Skeleton::Command.klass_from_namespace(namespace)
+      return <%= project_class_name %>::Command.klass_from_namespace(namespace)
     end
 
-    rake_task_found = Skeleton::RakeCommand.namespaced_commands.include?(full_command)
+    rake_task_found = <%= project_class_name %>::RakeCommand.namespaced_commands.include?(full_command)
     if rake_task_found
-      return Skeleton::RakeCommand
+      return <%= project_class_name %>::RakeCommand
     end
   end
 
@@ -123,7 +123,7 @@ class Skeleton::CLI
 
   def main_help
     if version_flag?
-      Skeleton::Main.perform("version", ["version"])
+      <%= project_class_name %>::Main.perform("version", ["version"])
       return
     end
 
@@ -141,11 +141,11 @@ class Skeleton::CLI
   end
 
   def thor_list
-    Skeleton::Command.help_list(show_all_tasks)
+    <%= project_class_name %>::Command.help_list(show_all_tasks)
   end
 
   def rake_list
-    list = Skeleton::RakeCommand.formatted_rake_tasks(show_all_tasks)
+    list = <%= project_class_name %>::RakeCommand.formatted_rake_tasks(show_all_tasks)
     list.map do |array|
       array[0] = "<%= project_name %> #{array[0]}"
       array
