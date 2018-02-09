@@ -1,5 +1,6 @@
 # CLI Template
 
+[![CircleCI](https://circleci.com/gh/tongueroo/cli-template.svg?style=svg)](https://circleci.com/gh/tongueroo/cli-template)
 [![Build Status](https://travis-ci.org/tongueroo/cli-template.svg?branch=generator)](https://travis-ci.org/tongueroo/cli-template)
 [![Code Climate](https://codeclimate.com/github/tongueroo/cli-template.png)](https://codeclimate.com/github/tongueroo/cli-template)
 

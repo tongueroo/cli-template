@@ -36,6 +36,12 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
+      - run:
+          name: configure git
+          command: |
+            git config --global user.email "tongueroo@gmail.com"
+            git config --global user.name "Tung Nguyen"
+
       # run tests!
       - run:
           name: run tests
