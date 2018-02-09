@@ -26,6 +26,7 @@ module ThorTemplate
     end
 
     def make_bin_executable
+      return unless File.exist?("bin")
       chmod "bin", 0755 & ~File.umask, verbose: false
     end
 
@@ -56,8 +57,8 @@ Cd into the project directory:
 
 Test the CLI:
 
-  exe/project_name hello # top-level commands
-  exe/project_name sub:goodbye # sub commands
+  exe/#{project_name} hello # top-level commands
+  exe/#{project_name} sub:goodbye # sub commands
 
 To publish your CLI as a gem, edit the #{project_name}.gemspec and run:
 
