@@ -58,7 +58,7 @@ module <%= project_class_name %>
 
           class_name = path
                         .sub(/\.rb$/,'')
-                        .sub(%r{.*/<%= underscored_name %>}, '<%= underscored_name %>')
+                        .sub(%r{.*/lib/},'')
                         .classify
 
           if class_name.include?('-')
