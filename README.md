@@ -29,6 +29,20 @@ Finished in 1.12 seconds (files took 0.71706 seconds to load)
 2 examples, 0 failures
 ```
 
+## Release
+
+Once you are satisified with the CLI tool, you can release it as a gem.
+
+    1. edit the mycli.gemspec
+    2. edit lib/mycli/version.rb
+    3. update the CHANGELOG.md
+
+And run:
+
+```
+rake release
+```
+
 ## Installation
 
 ```sh

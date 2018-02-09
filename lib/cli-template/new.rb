@@ -61,7 +61,7 @@ Test the CLI:
 To publish your CLI as a gem:
 
   1. edit the #{project_name}.gemspec
-  2. edit exe/#{project_name}/version.rb
+  2. edit lib/#{project_name}/version.rb
   3. update the CHANGELOG.md
 
 And run:
