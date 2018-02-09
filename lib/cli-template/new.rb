@@ -51,14 +51,12 @@ module CliTemplate
 #{"="*64}
 Congrats 🎉 You have successfully created a CLI project.
 
-Cd into the project directory:
-
-  cd #{project_name}
-
 Test the CLI:
 
-  exe/#{project_name} hello # top-level commands
+  cd #{project_name}
+  exe/#{project_name} hello       # top-level commands
   exe/#{project_name} sub:goodbye # sub commands
+  bundle exec rspec
 
 To publish your CLI as a gem, edit the #{project_name}.gemspec and run:
 
