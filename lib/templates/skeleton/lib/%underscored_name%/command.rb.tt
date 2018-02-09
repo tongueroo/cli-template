@@ -61,6 +61,11 @@ module <%= project_class_name %>
                         .sub(%r{.*/<%= underscored_name %>}, '<%= underscored_name %>')
                         .classify
 
+          if class_name.include?('-')
+            puts "WARN: Unable to autoload a class with a dash in the name" if ENV['DEBUG']
+            next
+          end
+
           # special mapping cases
           special_cases = {
             "<%= project_class_name %>::Cli" => "<%= project_class_name %>::CLI",
