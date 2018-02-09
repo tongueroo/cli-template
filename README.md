@@ -1,8 +1,7 @@
 # CLI Template
 
 [![CircleCI](https://circleci.com/gh/tongueroo/cli-template.svg?style=svg)](https://circleci.com/gh/tongueroo/cli-template)
-[![Build Status](https://travis-ci.org/tongueroo/cli-template.svg?branch=generator)](https://travis-ci.org/tongueroo/cli-template)
-[![Code Climate](https://codeclimate.com/github/tongueroo/cli-template.png)](https://codeclimate.com/github/tongueroo/cli-template)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c6c4f26aaafccab10baf/maintainability)](https://codeclimate.com/github/tongueroo/cli-template/maintainability)
 
 `cli-template` is a generator tool that builds a starter CLI project based on [Thor](http://whatisthor.com/). It is the successor tool to [thor_template](https://github.com/tongueroo/thor_template), which is also a tool that generates CLI projects.  The main difference is cli-template allows for namespace commands.  The usage section demonstrates a namespace command below.
 
