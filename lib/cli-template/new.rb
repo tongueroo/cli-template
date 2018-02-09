@@ -58,9 +58,16 @@ Test the CLI:
   exe/#{project_name} sub:goodbye # sub commands
   bundle exec rspec
 
-To publish your CLI as a gem, edit the #{project_name}.gemspec and run:
+To publish your CLI as a gem:
+
+  1. edit the #{project_name}.gemspec
+  2. edit exe/#{project_name}/version.rb
+  3. update the CHANGELOG.md
+
+And run:
 
   rake release
+
 EOL
     end
   end
