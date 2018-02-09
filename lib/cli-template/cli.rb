@@ -7,7 +7,7 @@ module CliTemplate
     New.cli_options.each do |args|
       option *args
     end
-    register(New, "new", "new", "generates new CLI project")
+    register(New, "new", "new NAME", "generates new CLI project")
 
     desc "version", "prints version"
     def version

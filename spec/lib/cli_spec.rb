@@ -1,10 +1,16 @@
 require 'spec_helper'
 
-# to run specs with what's remembered from vcr
-#   $ rake
+# This spec tests the generator with various forms of project names:
 #
-# to run specs with new fresh data from aws api calls
-#   $ rake clean:vcr ; time rake
+#   hello, my_cli, my-cli, MyCLI
+#
+# The tests shell out and execute the new command to ensures a high level of
+# confidence that the CLI generator works in real life.
+#
+# It also executes the generates specs of the new project to ensure specs
+# also pass.
+#
+# Because it shells out tests take about 20 seconds to run this spec file.
 describe CliTemplate::CLI do
   before(:all) do
     @args = "--noop"
