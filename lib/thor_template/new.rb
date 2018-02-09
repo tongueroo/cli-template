@@ -25,9 +25,9 @@ module ThorTemplate
       FileUtils.cd("#{Dir.pwd}/#{project_name}")
     end
 
-    def make_bin_executable
-      return unless File.exist?("bin")
-      chmod "bin", 0755 & ~File.umask, verbose: false
+    def make_executable
+      chmod("bin", 0755 & ~File.umask, verbose: false) if File.exist?("bin")
+      chmod("exe", 0755 & ~File.umask, verbose: false) if File.exist?("exe")
     end
 
     def bundle_install
