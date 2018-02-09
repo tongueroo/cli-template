@@ -3,7 +3,7 @@
 require 'rubygems'
 
 $:.unshift(File.expand_path('../../lib', __FILE__))
-require 'thor_template'
-require 'thor_template/cli'
+require 'cli-template'
+require 'cli-template/cli'
 
-ThorTemplate::CLI.start(ARGV)
+CliTemplate::CLI.start(ARGV)

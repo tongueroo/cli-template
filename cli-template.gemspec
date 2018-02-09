@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'thor_template/version'
+require 'cli-template/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "thor_template"
-  spec.version       = ThorTemplate::VERSION
+  spec.name          = "cli-template"
+  spec.version       = CliTemplate::VERSION
   spec.authors       = ["Tung Nguyen"]
   spec.email         = ["tongueroo@gmail.com"]
-  spec.description   = %q{Generates starter cli tool project.}
-  spec.summary       = %q{Generates starter cli tool project.}
+  spec.description   = %q{Generates starter CLI tool project.}
+  spec.summary       = %q{Generates starter CLI tool project.}
   spec.homepage      = ""
   spec.license       = "MIT"
 

@@ -12,7 +12,7 @@ ENV['TEST'] = '1'
 require "pp"
 
 root = File.expand_path('../../', __FILE__)
-require "#{root}/lib/thor_template"
+require "#{root}/lib/cli-template"
 
 module Helpers
   def execute(cmd)

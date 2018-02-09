@@ -1,9 +1,9 @@
-module ThorTemplate
+module CliTemplate
   class New < Sequence
     argument :project_name
 
     # Ugly, but when the class_option is only defined in the Thor::Group class
-    # it doesnt show up with thor_template new help :(
+    # it doesnt show up with cli-template new help :(
     # If anyone knows how to fix this let me know.
     def self.cli_options
       [

@@ -5,13 +5,13 @@ require 'spec_helper'
 #
 # to run specs with new fresh data from aws api calls
 #   $ rake clean:vcr ; time rake
-describe ThorTemplate::Generator do
+describe CliTemplate::Generator do
   before(:each) do
     options = {
       cwd: "tmp",
       name: "hello"
     }
-    @generator = ThorTemplate::Generator.new(options)
+    @generator = CliTemplate::Generator.new(options)
   end
 
   it "should generate" do

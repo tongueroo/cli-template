@@ -39,14 +39,14 @@ class <%= project_class_name %>::CLI
     args = @given_args.clone
 
     # Allow calling for help via:
-    #   thor_template command help
-    #   thor_template command -h
-    #   thor_template command --help
-    #   thor_template command -D
+    #   cli-template command help
+    #   cli-template command -h
+    #   cli-template command --help
+    #   cli-template command -D
     #
     # as well thor's normal way:
     #
-    #   thor_template help command
+    #   cli-template help command
     help_args = args & help_flags
     if help_args.empty?
       args[0] = meth # reassigns the command without the namespace

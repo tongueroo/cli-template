@@ -4,9 +4,9 @@ require 'active_support/core_ext/string'
 require 'thor'
 require 'bundler'
 
-class ThorTemplate::Sequence < Thor::Group
+class CliTemplate::Sequence < Thor::Group
   include Thor::Actions
-  include ThorTemplate::Helpers
+  include CliTemplate::Helpers
 
   def self.source_root
     File.expand_path("../../templates/skeleton", __FILE__)

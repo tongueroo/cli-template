@@ -12,19 +12,19 @@ task :rename do
   camelize = lambda do |str|
     str.to_s.gsub(/\/(.?)/) { "::#{$1.upcase}" }.gsub(/(?:^|_)(.)/) { $1.upcase }
   end
-  dir = Dir['**/thor_template*']
+  dir = Dir['**/cli-template*']
   begin
     from = dir.pop
     if from
       to = from.split('/')
-      to[-1].gsub!('thor_template', name)
+      to[-1].gsub!('cli-template', name)
       FileUtils.mv(from, to.join('/'))
     end
   end while dir.length > 0
   Dir["**/*"].each do |path|
     if File.file?(path)
-      `sed -i 's/thor_template/#{name}/g' #{path}`
-      `sed -i 's/ThorTemplate/#{camelize.call(name)}/g' #{path}`
+      `sed -i 's/cli-template/#{name}/g' #{path}`
+      `sed -i 's/CliTemplate/#{camelize.call(name)}/g' #{path}`
       no_space = File.read(path).gsub(/\s+\z/, '')
       File.open(path, 'w') { |f| f.write(no_space) }
     end

@@ -5,7 +5,7 @@ require 'spec_helper'
 #
 # to run specs with new fresh data from aws api calls
 #   $ rake clean:vcr ; time rake
-describe ThorTemplate::CLI do
+describe CliTemplate::CLI do
   before(:all) do
     @args = "--noop"
   end
@@ -13,7 +13,7 @@ describe ThorTemplate::CLI do
   describe "new" do
     context("simple single name") do
       it "should generate" do
-        out = execute("cd tmp && ../exe/thor_template new hello #{@args}")
+        out = execute("cd tmp && ../exe/cli-template new hello #{@args}")
         expect(out).to include("Created hello project!")
         out = execute("cd tmp/hello && rake")
         expect(out).to include("0 failures")
@@ -22,7 +22,7 @@ describe ThorTemplate::CLI do
 
     context("underscored name") do
       it "should generate" do
-        out = execute("cd tmp && ../exe/thor_template new my_cli #{@args}")
+        out = execute("cd tmp && ../exe/cli-template new my_cli #{@args}")
         expect(out).to include("Created my_cli project!")
         out = execute("cd tmp/my_cli && rake")
         expect(out).to include("0 failures")
@@ -31,7 +31,7 @@ describe ThorTemplate::CLI do
 
     context("dasherized name") do
       it "should generate" do
-        out = execute("cd tmp && ../exe/thor_template new my-cli #{@args}")
+        out = execute("cd tmp && ../exe/cli-template new my-cli #{@args}")
         expect(out).to include("Created my-cli project!")
         out = execute("cd tmp/my-cli && rake")
         expect(out).to include("0 failures")
@@ -41,7 +41,7 @@ describe ThorTemplate::CLI do
     # CamelCase is ugly :(
     context("simple CamelCase name") do
       it "should generate" do
-        out = execute("cd tmp && ../exe/thor_template new MyCli #{@args}")
+        out = execute("cd tmp && ../exe/cli-template new MyCli #{@args}")
         expect(out).to include("Created MyCli project!")
         out = execute("cd tmp/MyCli && rake")
         expect(out).to include("0 failures")

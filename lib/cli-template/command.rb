@@ -13,28 +13,28 @@ class Thor
   end
 end
 
-module ThorTemplate
+module CliTemplate
   class Command < Thor
     class << self
       def dispatch(m, args, options, config)
         # Allow calling for help via:
-        #   thor_template command help
-        #   thor_template command -h
-        #   thor_template command --help
-        #   thor_template command -D
+        #   cli-template command help
+        #   cli-template command -h
+        #   cli-template command --help
+        #   cli-template command -D
         #
         # as well thor's normal way:
         #
-        #   thor_template help command
+        #   cli-template help command
         help_flags = Thor::HELP_MAPPINGS + ["help"]
         if args.length > 1 && !(args & help_flags).empty?
           args -= help_flags
           args.insert(-2, "help")
         end
 
-        #   thor_template version
-        #   thor_template --version
-        #   thor_template -v
+        #   cli-template version
+        #   cli-template --version
+        #   cli-template -v
         version_flags = ["--version", "-v"]
         if args.length == 1 && !(args & version_flags).empty?
           args = ["version"]
