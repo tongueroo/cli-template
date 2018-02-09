@@ -1,5 +1,18 @@
 require 'thor'
 
+# Override thor's long_desc identation behavior
+# https://github.com/erikhuda/thor/issues/398
+class Thor
+  module Shell
+    class Basic
+      def print_wrapped(message, options = {})
+        message = "\n#{message}" unless message[0] == "\n"
+        stdout.puts message
+      end
+    end
+  end
+end
+
 module ThorTemplate
   class Command < Thor
     class << self
