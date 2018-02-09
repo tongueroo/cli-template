@@ -1,3 +1,0 @@
-Examples:
-
-  skeleton sub:goodbye

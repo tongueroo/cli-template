@@ -8,7 +8,7 @@ Signal.trap("INT") {
 }
 
 $:.unshift(File.expand_path("../../lib", __FILE__))
-require "skeleton"
-require "skeleton/cli"
+require "<%= project_name %>"
+require "<%= project_name %>/cli"
 
-Skeleton::CLI.start(ARGV)
+<%= project_class_name %>::CLI.start(ARGV)

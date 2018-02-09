@@ -6,6 +6,7 @@ require 'bundler'
 
 class ThorTemplate::Sequence < Thor::Group
   include Thor::Actions
+  include ThorTemplate::Helpers
 
   def self.source_root
     File.expand_path("../../templates/skeleton", __FILE__)

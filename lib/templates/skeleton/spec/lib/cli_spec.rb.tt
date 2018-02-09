@@ -10,9 +10,9 @@ describe Skeleton::CLI do
     @args = "--from Tung"
   end
 
-  describe "skeleton" do
+  describe "<%= project_name %>" do
     it "should hello world" do
-      out = execute("exe/skeleton hello world #{@args}")
+      out = execute("exe/<%= project_name %> hello world #{@args}")
       expect(out).to include("from: Tung\nHello world")
     end
   end

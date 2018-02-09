@@ -6,7 +6,7 @@ ENV["TEST"] = "1"
 require "pp"
 
 root = File.expand_path("../../", __FILE__)
-require "#{root}/lib/skeleton"
+require "#{root}/lib/<%= project_name %>"
 
 module Helpers
   def execute(cmd)

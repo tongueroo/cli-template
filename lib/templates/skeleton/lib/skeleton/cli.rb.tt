@@ -113,9 +113,9 @@ class Skeleton::CLI
   end
 
   # Allow calling version via:
-  #   skeleton version
-  #   skeleton --version
-  #   skeleton -v
+  #   <%= project_name %> version
+  #   <%= project_name %> --version
+  #   <%= project_name %> -v
   def version_flag?
     args = @given_args
     args.length == 1 && !(args & version_flags).empty?
@@ -147,7 +147,7 @@ class Skeleton::CLI
   def rake_list
     list = Skeleton::RakeCommand.formatted_rake_tasks(show_all_tasks)
     list.map do |array|
-      array[0] = "skeleton #{array[0]}"
+      array[0] = "<%= project_name %> #{array[0]}"
       array
     end
   end
@@ -160,9 +160,9 @@ class Skeleton::CLI
     <<-EOL
 Add -h to any of the commands for more help.  Examples:
 
-  skeleton hello -h
-  skeleton version
-  skeleton -h
+  <%= project_name %> hello -h
+  <%= project_name %> version
+  <%= project_name %> -h
 
 EOL
   end

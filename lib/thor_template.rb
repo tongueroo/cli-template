@@ -8,4 +8,5 @@ module ThorTemplate
   autoload :Version, 'thor_template/version'
   autoload :Sequence, 'thor_template/sequence'
   autoload :New, 'thor_template/new'
+  autoload :Helpers, 'thor_template/helpers'
 end

@@ -58,7 +58,7 @@ module Skeleton
 
           class_name = path
                         .sub(/\.rb$/,'')
-                        .sub(%r{.*/skeleton}, 'skeleton')
+                        .sub(%r{.*/<%= project_name %>}, '<%= project_name %>')
                         .classify
 
           # special mapping cases
@@ -94,7 +94,7 @@ module Skeleton
         command_name = command.usage # set with desc when defining tht Thor class
         namespaced_command = [namespace, command_name].compact.join(':')
 
-        "skeleton #{namespaced_command}"
+        "<%= project_name %> #{namespaced_command}"
       end
 
       def namespace_from_class(klass)
@@ -131,7 +131,7 @@ module Skeleton
 
       # If this fails to match then it'l just return the original full command
       def autocomplete(full_command)
-        return nil if full_command.nil? # skeleton help
+        return nil if full_command.nil? # <%= project_name %> help
 
         eager_load!
 

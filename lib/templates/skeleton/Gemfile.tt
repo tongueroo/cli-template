@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Specify your gem dependencies in skeleton.gemspec
+# Specify your gem dependencies in <%= project_name %>.gemspec
 gemspec
 
 gem "codeclimate-test-reporter", group: :test, require: nil

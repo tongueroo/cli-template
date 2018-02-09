@@ -1,0 +1,10 @@
+$:.unshift(File.expand_path("../", __FILE__))
+require "<%= project_name %>/version"
+
+module Skeleton
+  autoload :Help, "<%= project_name %>/help"
+  autoload :Command, "<%= project_name %>/command"
+  autoload :RakeCommand, "<%= project_name %>/rake_command"
+  autoload :CLI, "<%= project_name %>/cli"
+  autoload :Sub, "<%= project_name %>/sub"
+end
