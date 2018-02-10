@@ -43,6 +43,7 @@
 #
 #   <%= project_name %> completions
 #   <%= project_name %> completions sub:goodbye
+#   <%= project_name %> completions sub:goodbye name
 #
 # Note when testing, the first top-level word must be an exact match
 #
@@ -51,7 +52,7 @@
 #
 # The completions assumes that the top-level word that is being passed in
 # from completor/scripts.sh will always match exactly.  This must be the
-# case.  For parameter auto-completion it does not have to match exactly.
+# case.  For parameters, the word does not have to match exactly.
 #
 module <%= project_class_name %>
   class Completer
@@ -88,8 +89,7 @@ module <%= project_class_name %>
       end
 
       # will only get to here if the top-level command has been fully auto-completed.
-      klass = <%= project_class_name %>::Command.klass_from_namespace(namespace)
-      arity = klass.instance_method(trailing_command).arity.abs
+      arity = command_class.instance_method(trailing_command).arity.abs
       if @params.size <= arity
         puts params_completions(current_command)
       else
@@ -107,8 +107,7 @@ module <%= project_class_name %>
     end
 
     def params_completions(current_command)
-      klass = <%= project_class_name %>::Command.klass_from_namespace(namespace)
-      method_params = klass.instance_method(trailing_command).parameters
+      method_params = command_class.instance_method(trailing_command).parameters
       # Example:
       # >> Sub.instance_method(:goodbye).parameters
       # => [[:req, :name]]
@@ -123,15 +122,18 @@ module <%= project_class_name %>
     def options_completions(current_command)
       used = ARGV.select { |a| a.include?('--') } # so we can remove used options
 
-      klass = <%= project_class_name %>::Command.klass_from_namespace(namespace)
-      method_options = klass.all_commands[trailing_command].options.keys
-      class_options = klass.class_options.keys
+      method_options = command_class.all_commands[trailing_command].options.keys
+      class_options = command_class.class_options.keys
 
       all_options = method_options + class_options
 
       all_options.map! { |o| "--#{o.to_s.dasherize}" }
       filtered_options = all_options - used
       filtered_options
+    end
+
+    def command_class
+      @command_class ||= <%= project_class_name %>::Command.klass_from_namespace(namespace)
     end
   end
 end
