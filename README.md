@@ -43,6 +43,8 @@ And run:
 rake release
 ```
 
+When the installed as a gem, you no longer have to prepend exe in front of the command.  For example, `exe/mycli` becomes the `mycli` command.
+
 ## Installation
 
 ```sh
