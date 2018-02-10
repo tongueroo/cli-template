@@ -51,7 +51,7 @@ The generated CLI tool supports TAB auto-completion.  To enable auto, you can ad
 
   eval $(mycli completions:script)
 
-Remember to re-load your shell. Note, the auto completion will only work once it's binary is avaialble in your PATH.  You can do this by installing the gem.  You can also create a wrapper bash script that calls to your development copy like so
+Remember to re-load your shell. Note, the auto completion will only work once it's binary is avaialble in your PATH.  You can do this by installing the gem.  You can also create a wrapper bash script that calls to your development copy like so:
 
 ```
 cat > /usr/local/bin/mycli << 'EOL'
