@@ -9,7 +9,7 @@ class CliTemplate::Sequence < Thor::Group
   include CliTemplate::Helpers
 
   def self.source_root
-    File.expand_path("../../templates/skeleton", __FILE__)
+    File.expand_path("../../templates/default", __FILE__)
   end
 
 private

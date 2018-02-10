@@ -33,8 +33,8 @@ class <%= project_class_name %>::CLI
 
   # thor_args normalized the args Array to work with our Thor command
   # subclasses.
-  # 1. The namespace is stripe
-  # 2. Help is shifted in front if a help flag is detected
+  # 1. The namespace is stripped
+  # 2. The help is shifted in front if a help flag is detected
   def thor_args
     args = @given_args.clone
 
@@ -69,8 +69,12 @@ class <%= project_class_name %>::CLI
   end
 
   # 1. look up Thor tasks
-  # 2. look up Rake tasks
+  # 2. look up Rake tasks - currently disabled
   # 3. help menu with all commands when both Thor and Rake tasks are not found
+  #
+  # Example:
+  #
+  #   lookup("sub:hello") => Sub
   def lookup(full_command)
     thor_task_found = <%= project_class_name %>::Command.namespaced_commands.include?(full_command)
     if thor_task_found
@@ -131,10 +135,12 @@ class <%= project_class_name %>::CLI
     shell.say "Commands:"
     shell.print_table(thor_list, :indent => 2, :truncate => true)
 
-    unless rake_list.empty?
-      shell.say "\nCommands via rake:"
-      shell.print_table(rake_list, :indent => 2, :truncate => true)
-    end
+    # TODO: commenting out for now, feels weird to show the rake tasks
+    # automatically also by default. Maybe add an option for this.
+    # unless rake_list.empty?
+    #   shell.say "\nCommands via rake:"
+    #   shell.print_table(rake_list, :indent => 2, :truncate => true)
+    # end
 
     shell.say "\n"
     shell.say main_help_body

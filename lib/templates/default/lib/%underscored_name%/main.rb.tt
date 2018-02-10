@@ -13,6 +13,12 @@ module <%= project_class_name %>
       puts "Hello #{name}"
     end
 
+    desc "completions *PARAMS", "prints words for auto-completion"
+    long_desc Help.text(:completions)
+    def completions(*params)
+      Completer.new(*params).run
+    end
+
     desc "version", "prints version"
     def version
       puts VERSION

@@ -1,0 +1,18 @@
+Prints words for TAB auto-completion.
+
+Examples:
+
+  <%= project_name %> completions
+  <%= project_name %> completions hello
+  <%= project_name %> completions hello name
+
+To enable, TAB auto-completion add the following to your profile:
+
+  eval $(<%= project_name %> completions:script)
+
+Auto-completion example usage:
+
+  <%= project_name %> [TAB]
+  <%= project_name %> hello [TAB]
+  <%= project_name %> hello name [TAB]
+  <%= project_name %> hello name --[TAB]

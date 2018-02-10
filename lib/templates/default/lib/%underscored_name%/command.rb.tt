@@ -22,10 +22,8 @@ module <%= project_class_name %>
       #   ["help"]
       #   ["dynamodb:migrate"]
       #
-      # Same signature as RakeCommand.perform.  Not using full_command.
-      #
-      # To call a thor task via ruby.
-      # Signature is a little weird with the repetition, examples:
+      # Same signature as RakeCommand.perform.  Signature is a little weird
+      # with some repetition.  Examples:
       #
       #   <%= project_class_name %>::Main.perform("hello", ["hello"])
       #   <%= project_class_name %>::Main.perform("dynamodb:migrate", ["migrate"])
@@ -66,22 +64,33 @@ module <%= project_class_name %>
             next
           end
 
-          # special mapping cases
-          special_cases = {
-            "<%= project_class_name %>::Cli" => "<%= project_class_name %>::CLI",
-            "<%= project_class_name %>::Version" => "<%= project_class_name %>::VERSION",
-          }
-          class_name = special_cases[class_name] || class_name
+          class_name = class_map[class_name] || class_name
 
           puts "eager_load! loading path: #{path} class_name: #{class_name}" if debug?
           class_name.constantize # dont have to worry about order.
         end
       end
 
+      # Special class mapping cases. This is because ActiveSupport's autoloading
+      # forces a specific naming convention.
+      def class_map
+        map = {
+          "<%= project_class_name %>::Cli" => "<%= project_class_name %>::CLI",
+          "<%= project_class_name %>::Version" => "<%= project_class_name %>::VERSION",
+          "<%= project_class_name %>::Completion" => "<%= project_class_name %>::Completions",
+        }
+        map.merge(additional_class_map)
+        map
+      end
+
+      # Override this if you need add addtional class mappings.
+      def additional_class_map
+        {}
+      end
+
       # Fully qualifed task names. Examples:
-      #   build
-      #   process:controller
-      #   dynamodb:migrate:down
+      #   hello
+      #   sub:goodbye
       def namespaced_commands
         eager_load!
         subclasses.map do |klass|
@@ -124,12 +133,16 @@ module <%= project_class_name %>
         list.sort_by! { |array| array[0] }
       end
 
+      # Example:
+      #    klass_from_namespace(nil) => Main
+      #    klass_from_namespace("sub") => Sub
       def klass_from_namespace(namespace)
         if namespace.nil?
           <%= project_class_name %>::Main
         else
           class_name = namespace.gsub(':','/')
           class_name = "<%= project_class_name %>::#{class_name.classify}"
+          class_name = class_map[class_name] || class_name
           class_name.constantize
         end
       end
