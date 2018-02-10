@@ -13,7 +13,7 @@ The predecessor tool is covered in this original blog post, [Build Thor CLI Proj
 cli-template new mycli
 cd mycli
 exe/mycli hello world
-exe/mycli sub:goodbye world
+exe/mycli sub:goodbye world # namespaced command with colons
 ```
 
 The above generated a starter CLI project called `mycli` with a working hello command.  The created project also has starter specs for you 😁
