@@ -55,7 +55,7 @@
 #
 module <%= project_class_name %>
   class Completer
-    autoload :Script, '<%= project_name %>/completer/script'
+    autoload :Script, '<%= underscored_name %>/completer/script'
 
     def initialize(*params)
       log "params #{params.inspect}"
