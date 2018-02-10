@@ -43,7 +43,15 @@ And run:
 rake release
 ```
 
-When the installed as a gem, you no longer have to prepend exe in front of the command.  For example, `exe/mycli` becomes the `mycli` command.
+When installed as a gem, you no longer have to prepend exe in front of the command.  For example, `exe/mycli` becomes the `mycli` command.
+
+## Auto Completion
+
+The generated CLI tool supports TAB auto-completion.  To enable auto, you can add this to your `~/.bashrc` or `~/.profile`:
+
+  eval $(mycli completions:script)
+
+Remember to re-load your shell. Note, the auto completion will only work once you tool is installed and it's binary is avaialble in your PATH.
 
 ## Installation
 
