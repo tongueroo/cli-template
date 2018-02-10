@@ -4,19 +4,18 @@
 #
 #   1. top-level commands - when there are zero completed words
 #   2. params completions - when a command has some required params
-#   3. options completions - when we have finished auto-completing the top-level command and required params, the rest of the completion will be the command options
+#   3. options completions - when we have finished auto-completing the top-level command and required params, the rest of the completion words will be options
 #
 # Terms:
 #
-#   params - these are params in the command itself. Example: for the method `scale(service, count)` the params are `service, count`.
+#   params - these are params in the command itself. Example: for the method `scale(service, count)` the params would be `service, count`.
 #   options - these are cli options flags.  Examples: --noop, --verbose
 #
-# When we are done processing method params, the completions will be only options. When detected params size greater than arity we are have finished
-# auto-completing the parameters in the method declaration.  For example, save you had a method for a CLI command with the following form:
+# When we are done processing method params, the completions will be only options. When the detected params size is greater than the arity we are have finished auto-completing the parameters in the method declaration.  For example, say you had a method for a CLI command with the following form:
 #
 #   scale(service, count) = arity of 2
 #
-#   <%= project_name %> scale service count [TAB] # there are 3 params includin the "scale" command
+#   <%= project_name %> scale service count [TAB] # there are 3 params including the "scale" command
 #
 # So the completions will be something like:
 #

@@ -33,8 +33,8 @@ class <%= project_class_name %>::CLI
 
   # thor_args normalized the args Array to work with our Thor command
   # subclasses.
-  # 1. The namespace is stripe
-  # 2. Help is shifted in front if a help flag is detected
+  # 1. The namespace is stripped
+  # 2. The help is shifted in front if a help flag is detected
   def thor_args
     args = @given_args.clone
 
@@ -69,7 +69,7 @@ class <%= project_class_name %>::CLI
   end
 
   # 1. look up Thor tasks
-  # 2. look up Rake tasks
+  # 2. look up Rake tasks - currently disabled
   # 3. help menu with all commands when both Thor and Rake tasks are not found
   #
   # Example:

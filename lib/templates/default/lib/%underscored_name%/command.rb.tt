@@ -22,10 +22,8 @@ module <%= project_class_name %>
       #   ["help"]
       #   ["dynamodb:migrate"]
       #
-      # Same signature as RakeCommand.perform.  Not using full_command.
-      #
-      # To call a thor task via ruby.
-      # Signature is a little weird with the repetition, examples:
+      # Same signature as RakeCommand.perform.  Signature is a little weird
+      # with some repetition.  Examples:
       #
       #   <%= project_class_name %>::Main.perform("hello", ["hello"])
       #   <%= project_class_name %>::Main.perform("dynamodb:migrate", ["migrate"])
