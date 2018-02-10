@@ -58,7 +58,6 @@ module <%= project_class_name %>
     autoload :Script, '<%= underscored_name %>/completer/script'
 
     def initialize(*params)
-      log "params #{params.inspect}"
       @params = params
     end
 
@@ -89,21 +88,13 @@ module <%= project_class_name %>
       end
 
       # will only get to here if the top-level command has been fully auto-completed.
-      log "current_command: #{current_command}"
-      log "namespace: #{namespace}"
-      log "trailing_command: #{trailing_command}"
-
       klass = <%= project_class_name %>::Command.klass_from_namespace(namespace)
       arity = klass.instance_method(trailing_command).arity.abs
-      log "@params.size > arity"
-      log "#{@params.size} > #{arity}"
       if @params.size <= arity
         puts params_completions(current_command)
       else
         puts options_completions(current_command)
       end
-
-      log ""
     end
 
     # all top-level commands
@@ -116,8 +107,6 @@ module <%= project_class_name %>
     end
 
     def params_completions(current_command)
-      log "params_completions"
-
       klass = <%= project_class_name %>::Command.klass_from_namespace(namespace)
       method_params = klass.instance_method(trailing_command).parameters
       # Example:
@@ -128,13 +117,10 @@ module <%= project_class_name %>
 
       offset = @params.size - 1
       offset_params = method_params[offset..-1]
-      log "offset #{offset}"
-      log "offset_params #{offset_params.inspect}"
       method_params[offset..-1].first
     end
 
     def options_completions(current_command)
-      log "options_completions"
       used = ARGV.select { |a| a.include?('--') } # so we can remove used options
 
       klass = <%= project_class_name %>::Command.klass_from_namespace(namespace)
@@ -146,12 +132,6 @@ module <%= project_class_name %>
       all_options.map! { |o| "--#{o.to_s.dasherize}" }
       filtered_options = all_options - used
       filtered_options
-    end
-
-    def log(msg)
-      File.open("/tmp/<%= project_name %>.log", "a") do |file|
-        file.puts(msg)
-      end
     end
   end
 end
