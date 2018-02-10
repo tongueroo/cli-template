@@ -1,3 +1,5 @@
 Examples:
 
   <%= project_name %> hello
+  <%= project_name %> hello NAME
+  <%= project_name %> hello NAME --from me

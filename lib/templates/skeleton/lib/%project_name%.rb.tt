@@ -7,4 +7,6 @@ module <%= project_class_name %>
   autoload :RakeCommand, "<%= underscored_name %>/rake_command"
   autoload :CLI, "<%= underscored_name %>/cli"
   autoload :Sub, "<%= underscored_name %>/sub"
+  autoload :Completions, "<%= underscored_name %>/completions"
+  autoload :Completer, "<%= underscored_name %>/completer"
 end

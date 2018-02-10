@@ -11,14 +11,32 @@ describe <%= project_class_name %>::CLI do
   end
 
   describe "<%= project_name %>" do
-    it "should hello world" do
+    it "hello" do
       out = execute("exe/<%= project_name %> hello world #{@args}")
       expect(out).to include("from: Tung\nHello world")
     end
 
-    it "should goodbye world" do
+    it "goodbye" do
       out = execute("exe/<%= project_name %> sub:goodbye world #{@args}")
       expect(out).to include("from: Tung\nGoodbye world")
+    end
+
+    it "completions" do
+      out = execute("exe/<%= project_name %> completions")
+      expect(out).to include("hello")
+      expect(out).to include("sub:goodbye")
+
+      out = execute("exe/<%= project_name %> completions hello")
+      expect(out).to include("name")
+
+      out = execute("exe/<%= project_name %> completions hello name")
+      expect(out).to include("--from")
+
+      out = execute("exe/<%= project_name %> completions sub:goodbye")
+      expect(out).to include("name")
+
+      out = execute("exe/<%= project_name %> completions sub:goodbye name")
+      expect(out).to include("--from")
     end
   end
 end
