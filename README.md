@@ -45,7 +45,7 @@ rake release
 
 When installed as a gem, you no longer have to prepend exe in front of the command.  For example, `exe/mycli` becomes the `mycli` command.
 
-## Auto Completion
+## Auto Completion (Experimental)
 
 The generated CLI tool supports TAB auto-completion.  To enable auto, you can add this to your `~/.bashrc` or `~/.profile`:
 
@@ -60,6 +60,8 @@ exec ~/src/mycli/exe/mycli "$@"
 EOL
 chmod a+x /usr/local/bin/mycli
 ```
+
+Currently, this is experimental. It is a little too slow to be as useful as it could. This because the generated CLI invokes autoloading when it detects the methods for the completion words. Constructive ideas on the speed of this would be appreciated!
 
 ## Installation
 

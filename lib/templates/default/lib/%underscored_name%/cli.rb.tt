@@ -144,7 +144,7 @@ module <%= project_class_name %>
       # end
 
       shell.say "\n"
-      shell.say Help.text(:main)
+      shell.say Help.text(:main) + "\n"
     end
 
     def thor_list
