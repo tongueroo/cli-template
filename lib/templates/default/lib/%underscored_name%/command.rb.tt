@@ -31,6 +31,10 @@ module <%= project_class_name %>
       def perform(full_command, thor_args)
         config = {} # doesnt seem like config is used
         dispatch(nil, thor_args, nil, config)
+      rescue Thor::InvocationError => e
+        puts e.message
+        puts "  ufo #{full_command} -h # for more help"
+        exit 1
       end
 
       # Track all command subclasses.
@@ -49,7 +53,10 @@ module <%= project_class_name %>
       # Useful for help menu when we need to have all the definitions loaded.
       # Using constantize instead of require so we dont care about
       # order. The eager load actually uses autoloading.
+      @@eager_loaded = false
       def eager_load!
+        return if @@eager_loaded
+
         path = File.expand_path("../../", __FILE__)
         Dir.glob("#{path}/<%= underscored_name %>/**/*.rb").select do |path|
           next if !File.file?(path)
@@ -69,6 +76,8 @@ module <%= project_class_name %>
           puts "eager_load! loading path: #{path} class_name: #{class_name}" if debug?
           class_name.constantize # dont have to worry about order.
         end
+
+        @@eager_loaded = true
       end
 
       # Special class mapping cases. This is because ActiveSupport's autoloading
