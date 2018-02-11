@@ -61,10 +61,12 @@ EOL
 chmod a+x /usr/local/bin/mycli
 ```
 
-Auto completion is a little too slow to be as useful. This because the generated CLI invokes autoloading when it detects the methods for the completion words. Constructive ideas on speeding this would be appreciated!
+Issues with auto completion:
 
-Also, auto-completion does not work with colons currently.  Will have to look into this post [Bash Command-Line Tab Completion Colon Character
+1. Too slow to be as useful. This because the generated CLI invokes autoloading when it detects the methods for the completion words. Constructive ideas on speeding this would be appreciated!
+2. Does not work with colons currently.  Will have to look into this post [Bash Command-Line Tab Completion Colon Character
 ](https://stackoverflow.com/questions/25362968/bash-command-line-tab-completion-colon-character).
+3. Does not work with the last two characters are `--`.
 
 ## Installation
 

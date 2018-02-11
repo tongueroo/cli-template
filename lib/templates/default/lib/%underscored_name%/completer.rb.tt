@@ -134,5 +134,12 @@ module <%= project_class_name %>
     def command_class
       @command_class ||= <%= project_class_name %>::Command.klass_from_namespace(namespace)
     end
+
+    # Useful for debugging. Using puts messes up completion.
+    def log(msg)
+      File.open("/tmp/complete.log", "a") do |file|
+        file.puts(msg)
+      end
+    end
   end
 end
