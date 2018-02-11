@@ -61,26 +61,6 @@ module <%= project_class_name %>
       @params = params
     end
 
-    def current_command
-      @params[0]
-    end
-
-    # Example: sub:goodbye => "sub"
-    def namespace
-      return nil unless current_command
-
-      if current_command.include?(':')
-        words = current_command.split(':')
-        words.pop
-        words.join(':')
-      end
-    end
-
-    # Example: sub:goodbye => "goodbye"
-    def trailing_command
-      current_command.split(':').last
-    end
-
     def run
       if @params.size == 0
         puts all_commands
@@ -129,6 +109,26 @@ module <%= project_class_name %>
       all_options.map! { |o| "--#{o.to_s.dasherize}" }
       filtered_options = all_options - used
       filtered_options
+    end
+
+    def current_command
+      @params[0]
+    end
+
+    # Example: sub:goodbye => "sub"
+    def namespace
+      return nil unless current_command
+
+      if current_command.include?(':')
+        words = current_command.split(':')
+        words.pop
+        words.join(':')
+      end
+    end
+
+    # Example: sub:goodbye => "goodbye"
+    def trailing_command
+      current_command.split(':').last
     end
 
     def command_class

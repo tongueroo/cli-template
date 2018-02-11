@@ -47,7 +47,7 @@ When installed as a gem, you no longer have to prepend exe in front of the comma
 
 ## Auto Completion (Experimental)
 
-The generated CLI tool supports TAB auto-completion.  To enable auto, you can add this to your `~/.bashrc` or `~/.profile`:
+This is experimental support for TAB completion in the newly generated CLI project.  To enable auto, you can add this to your `~/.bashrc` or `~/.profile`:
 
   eval $(mycli completions:script)
 
@@ -61,7 +61,10 @@ EOL
 chmod a+x /usr/local/bin/mycli
 ```
 
-Currently, this is experimental. It is a little too slow to be as useful as it could. This because the generated CLI invokes autoloading when it detects the methods for the completion words. Constructive ideas on the speed of this would be appreciated!
+It is a little too slow to be as useful as it could. This because the generated CLI invokes autoloading when it detects the methods for the completion words. Constructive ideas on the speed of this would be appreciated!
+
+Also, auto-completion does not work with colons currently.  Will have to look into this post [Bash Command-Line Tab Completion Colon Character
+](https://stackoverflow.com/questions/25362968/bash-command-line-tab-completion-colon-character).
 
 ## Installation
 
