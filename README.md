@@ -47,7 +47,7 @@ When installed as a gem, you no longer have to prepend exe in front of the comma
 
 ## Auto Completion (Experimental)
 
-This is experimental support for TAB completion in the newly generated CLI project.  To enable auto, you can add this to your `~/.bashrc` or `~/.profile`:
+There is experimental support for TAB completion in the newly generated CLI project.  To enable auto, you can add this to your `~/.bashrc` or `~/.profile`:
 
   eval $(mycli completions:script)
 
