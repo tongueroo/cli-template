@@ -28,9 +28,9 @@ private
   end
 
   def confirm_cli_project
-    jets_project = File.exist?("#{project_name}/config/application.rb")
-    unless jets_project
-      puts "It does not look like the repo #{options[:repo]} is a jets project. Maybe double check that it is?  Exited.".colorize(:red)
+    cli_project = File.exist?("#{project_name}/config/application.rb")
+    unless cli_project
+      puts "It does not look like the repo #{options[:repo]} is a cli project. Maybe double check that it is?  Exited.".colorize(:red)
       exit 1
     end
   end
