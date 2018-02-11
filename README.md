@@ -49,7 +49,7 @@ When installed as a gem, you no longer have to prepend exe in front of the comma
 
 There is experimental support for TAB completion in the newly generated CLI project.  To enable auto completion, add this to `~/.bashrc` or `~/.profile`:
 
-  eval $(mycli completions:script)
+    eval $(mycli completions:script)
 
 Remember to re-load the shell. Note, the auto completion will only work if the cli command is avaialble in your PATH.  You can do this by installing the gem.  You can also create a wrapper bash script that calls to your development cli command like so:
 
