@@ -1,0 +1,9 @@
+module <%= project_class_name %>
+  class Completions < Command
+    desc "script", "generates script that can be eval to setup auto-completion"
+    long_desc Help.text("completion:script")
+    def script
+      Completer::Script.generate
+    end
+  end
+end

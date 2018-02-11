@@ -1,0 +1,11 @@
+$:.unshift(File.expand_path("../", __FILE__))
+require "<%= underscored_name %>/version"
+
+module <%= project_class_name %>
+  autoload :Help, "<%= underscored_name %>/help"
+  autoload :Command, "<%= underscored_name %>/command"
+  autoload :CLI, "<%= underscored_name %>/cli"
+  autoload :Sub, "<%= underscored_name %>/sub"
+  autoload :Completion, "<%= underscored_name %>/completion"
+  autoload :Completer, "<%= underscored_name %>/completer"
+end

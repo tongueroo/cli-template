@@ -10,7 +10,7 @@ class CliTemplate::Sequence < Thor::Group
 
   def self.source_root
     template = ENV['TEMPLATE'] || 'default'
-    File.expand_path("../../templates/namespace", __FILE__)
+    File.expand_path("../../templates/#{template}", __FILE__)
   end
 
 private
