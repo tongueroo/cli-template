@@ -50,6 +50,21 @@ rake release
 
 When installed as a gem, you no longer have to prepend exe in front of the command.  For example, `exe/mycli` becomes the `mycli` command.
 
+## Different starter templates
+
+There are 2 different templates that the tool generates from:
+
+1. basic thor project: A standard CLI tool based on basic usage of Thor.
+2. colon namespaced project: The generated CLI project still uses Thor but it does some manipulation in order to allow defining namespaced methods with colons instead of spaces.  Example: `mycli sub:command` vs `mycli sub command`.
+
+To use the different templates:
+
+```
+TEMPLATE=colon_namespaces cli-template new mycli
+TEMPLATE=default cli-template new mycli
+cli-template new mycli # same as TEMPLATE=default
+```
+
 ## Auto Completion (Experimental)
 
 There is experimental support for TAB completion in the newly generated CLI project.  To enable auto completion, add this to `~/.bashrc` or `~/.profile`:
