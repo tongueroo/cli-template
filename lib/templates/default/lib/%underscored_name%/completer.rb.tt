@@ -104,11 +104,11 @@ module <%= project_class_name %>
       method_options = command_class.all_commands[trailing_command].options.keys
       class_options = command_class.class_options.keys
 
-      all_options = method_options + class_options
+      all_options = method_options + class_options + ['help']
 
       all_options.map! { |o| "--#{o.to_s.dasherize}" }
       filtered_options = all_options - used
-      filtered_options
+      filtered_options.uniq
     end
 
     def current_command
