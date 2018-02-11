@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+# Trap ^C
+Signal.trap("INT") {
+  puts "\nCtrl-C detected. Exiting..."
+  sleep 1
+  exit
+}
+
+$:.unshift(File.expand_path("../../lib", __FILE__))
+require "<%= project_name %>"
+require "<%= underscored_name %>/cli"
+
+<%= project_class_name %>::CLI.start(ARGV)

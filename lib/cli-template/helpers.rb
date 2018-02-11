@@ -9,4 +9,7 @@ module CliTemplate::Helpers
   def underscored_name
     project_name.underscore
   end
+
+  # project_name is also available from new.rb:
+  #   argument :project_name
 end

@@ -1,0 +1,10 @@
+_<%= project_name %>() {
+  COMPREPLY=()
+  local word="${COMP_WORDS[COMP_CWORD]}"
+  local words=("${COMP_WORDS[@]}")
+  unset words[0]
+  local completion=$(<%= project_name %> completion ${words[@]})
+  COMPREPLY=( $(compgen -W "$completion" -- "$word") )
+}
+
+complete -F _<%= project_name %> <%= project_name %>
