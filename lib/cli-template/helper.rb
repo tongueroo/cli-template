@@ -1,4 +1,4 @@
-module CliTemplate::Helpers
+module CliTemplate::Helper
   def project_class_name
     project_name.underscore.camelize
   end

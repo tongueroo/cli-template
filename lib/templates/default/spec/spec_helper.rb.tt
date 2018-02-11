@@ -9,7 +9,7 @@ require "byebug"
 root = File.expand_path("../", File.dirname(__FILE__))
 require "#{root}/lib/<%= project_name %>"
 
-module Helpers
+module Helper
   def execute(cmd)
     puts "Running: #{cmd}" if show_command?
     out = `#{cmd}`
@@ -25,5 +25,5 @@ module Helpers
 end
 
 RSpec.configure do |c|
-  c.include Helpers
+  c.include Helper
 end

@@ -9,7 +9,7 @@ require "pp"
 root = File.expand_path('../../', __FILE__)
 require "#{root}/lib/cli-template"
 
-module Helpers
+module Helper
   def execute(cmd)
     puts "Running: #{cmd}" if show_command?
     out = `#{cmd}`
@@ -25,7 +25,7 @@ module Helpers
 end
 
 RSpec.configure do |c|
-  c.include Helpers
+  c.include Helper
   c.before(:all) do
     FileUtils.rm_rf("tmp")
     FileUtils.mkdir_p("tmp")

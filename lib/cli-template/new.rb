@@ -2,21 +2,6 @@ module CliTemplate
   class New < Sequence
     argument :project_name
 
-    # Ugly, but when the class_option is only defined in the Thor::Group class
-    # it doesnt show up with cli-template new help :(
-    # If anyone knows how to fix this let me know.
-    def self.cli_options
-      [
-        [:repo, desc: "GitHub repo to use. Format: user/repo"],
-        [:force, type: :boolean, desc: "Bypass overwrite are you sure prompt for existing files."],
-        [:git, type: :boolean, default: true, desc: "Git initialize the project"],
-      ]
-    end
-
-    cli_options.each do |args|
-      class_option *args
-    end
-
     def create_project
       options[:repo] ? clone_project : copy_project
 

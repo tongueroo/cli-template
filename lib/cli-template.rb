@@ -8,5 +8,5 @@ module CliTemplate
   autoload :Version, 'cli-template/version'
   autoload :Sequence, 'cli-template/sequence'
   autoload :New, 'cli-template/new'
-  autoload :Helpers, 'cli-template/helpers'
+  autoload :Helper, 'cli-template/helper'
 end

@@ -6,7 +6,7 @@ require 'bundler'
 
 class CliTemplate::Sequence < Thor::Group
   include Thor::Actions
-  include CliTemplate::Helpers
+  include CliTemplate::Helper
 
   def self.source_root
     template = ENV['TEMPLATE'] || 'default'
