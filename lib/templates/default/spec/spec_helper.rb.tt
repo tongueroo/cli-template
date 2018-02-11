@@ -5,8 +5,8 @@ ENV["TEST"] = "1"
 # SimpleCov.start
 
 require "pp"
-
-root = File.expand_path("../../", __FILE__)
+require "byebug"
+root = File.expand_path("../", File.dirname(__FILE__))
 require "#{root}/lib/<%= project_name %>"
 
 module Helpers

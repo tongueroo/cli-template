@@ -65,11 +65,11 @@ TEMPLATE=default cli-template new mycli
 cli-template new mycli # same as TEMPLATE=default
 ```
 
-## Auto Completion (Experimental)
+## Auto Completion
 
-There is experimental support for TAB completion in the newly generated CLI project.  To enable auto completion, add this to `~/.bashrc` or `~/.profile`:
+There is support for TAB completion in the newly generated CLI project for the default template.  To enable auto completion, add this to `~/.bashrc` or `~/.profile`:
 
-    eval $(mycli completions:script)
+    eval $(mycli completion_script)
 
 Remember to re-load the shell. Note, the auto completion will only work if the cli command is avaialble in your PATH.  You can do this by installing the gem.  You can also create a wrapper bash script that calls to your development cli command like so:
 
@@ -81,12 +81,16 @@ EOL
 chmod a+x /usr/local/bin/mycli
 ```
 
-Issues with auto completion:
+### Experimental Auto Completion Support for colon_namespaces Template
 
-1. Slow. This because the generated CLI invokes autoloading when it detects the methods for the completion words. Constructive ideas on speeding this would be appreciated!
+The auto-completion for the colon_namespaces template CLI project is experimental. Ran into a few issues:
+
+1. Slow as to make auto-completion useless. This because the generated CLI invokes autoloading when it detects the methods for the completion words. Ideas on speeding this would be appreciated! Right now it takes about 1 second.
 2. Does not work with colons currently.  Will have to look into this post [Bash Command-Line Tab Completion Colon Character
 ](https://stackoverflow.com/questions/25362968/bash-command-line-tab-completion-colon-character).
 3. Does not work with the last two characters are `--`.
+
+Suggestions to are appreciated!
 
 ## Installation
 
