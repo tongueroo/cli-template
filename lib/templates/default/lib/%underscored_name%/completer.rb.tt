@@ -34,20 +34,20 @@
 #
 # To test:
 #
-#   <%= project_name %> completion list
-#   <%= project_name %> completion list hello
-#   <%= project_name %> completion list hello name
-#   <%= project_name %> completion list hello name --
-#   <%= project_name %> completion list hello name --noop
+#   <%= project_name %> completion
+#   <%= project_name %> completion hello
+#   <%= project_name %> completion hello name
+#   <%= project_name %> completion hello name --
+#   <%= project_name %> completion hello name --noop
 #
-#   <%= project_name %> completion list
-#   <%= project_name %> completion list sub:goodbye
-#   <%= project_name %> completion list sub:goodbye name
+#   <%= project_name %> completion
+#   <%= project_name %> completion sub:goodbye
+#   <%= project_name %> completion sub:goodbye name
 #
 # Note when testing, the first top-level word must be an exact match
 #
-#   <%= project_name %> completion list hello # works fine
-#   <%= project_name %> completion list he # incomplete, this will just break
+#   <%= project_name %> completion hello # works fine
+#   <%= project_name %> completion he # incomplete, this will just break
 #
 # The completion assumes that the top-level word that is being passed in
 # from completor/scripts.sh will always match exactly.  This must be the
@@ -57,36 +57,54 @@ module <%= project_class_name %>
   class Completer
     autoload :Script, '<%= underscored_name %>/completer/script'
 
-    def initialize(*params)
+    def initialize(command_class, *params)
       @params = params
+      @current_command = @params[0]
+      @command_class = command_class # CLI initiall
     end
 
     def run
-      if @params.size == 0
+      if subcommand?(@current_command)
+        subcommand_class = @command_class.subcommand_classes[@current_command]
+        @params.shift # destructive
+        Completer.new(subcommand_class, *@params).run # recursively use subcommand
+        return
+      end
+
+      # full command has been found!
+      unless found?(@current_command)
         puts all_commands
         return
       end
 
-      # will only get to here if the top-level command has been fully auto-completed.
-      arity = command_class.instance_method(trailing_command).arity.abs
+      # will only get to here if command aws found (above)
+      arity = @command_class.instance_method(@current_command).arity.abs
       if @params.size <= arity
-        puts params_completion(current_command)
+        puts params_completion
       else
-        puts options_completion(current_command)
+        puts options_completion
       end
+    end
+
+    def subcommand?(command)
+      @command_class.subcommands.include?(command)
+    end
+
+    def found?(command)
+      public_methods = @command_class.public_instance_methods - Object.methods
+      command && public_methods.include?(command.to_sym)
     end
 
     # all top-level commands
     def all_commands
-      # Interesing, extra :help commands show up here but no whne using
-      # <%= project_class_name %>::Command.help_list in main_help -> thor_list
-      # We'll filter out :help for auto-completion.
-      commands = <%= project_class_name %>::Command.namespaced_commands
-      commands.reject { |c| c =~ /:help$/ }
+      commands = @command_class.all_commands.reject do |k,v|
+        v.is_a?(Thor::HiddenCommand)
+      end
+      commands.keys
     end
 
-    def params_completion(current_command)
-      method_params = command_class.instance_method(trailing_command).parameters
+    def params_completion
+      method_params = @command_class.instance_method(@current_command).parameters
       # Example:
       # >> Sub.instance_method(:goodbye).parameters
       # => [[:req, :name]]
@@ -98,41 +116,17 @@ module <%= project_class_name %>
       method_params[offset..-1].first
     end
 
-    def options_completion(current_command)
+    def options_completion
       used = ARGV.select { |a| a.include?('--') } # so we can remove used options
 
-      method_options = command_class.all_commands[trailing_command].options.keys
-      class_options = command_class.class_options.keys
+      method_options = @command_class.all_commands[@current_command].options.keys
+      class_options = @command_class.class_options.keys
 
       all_options = method_options + class_options + ['help']
 
-      all_options.map! { |o| "--#{o.to_s.dasherize}" }
+      all_options.map! { |o| "--#{o.to_s.gsub('_','-')}" }
       filtered_options = all_options - used
       filtered_options.uniq
-    end
-
-    def current_command
-      @params[0]
-    end
-
-    # Example: sub:goodbye => "sub"
-    def namespace
-      return nil unless current_command
-
-      if current_command.include?(':')
-        words = current_command.split(':')
-        words.pop
-        words.join(':')
-      end
-    end
-
-    # Example: sub:goodbye => "goodbye"
-    def trailing_command
-      current_command.split(':').last
-    end
-
-    def command_class
-      @command_class ||= <%= project_class_name %>::Command.klass_from_namespace(namespace)
     end
 
     # Useful for debugging. Using puts messes up completion.

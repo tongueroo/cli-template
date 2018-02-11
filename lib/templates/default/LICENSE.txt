@@ -1,4 +1,4 @@
-Copyright (c) <%= Time.now.strftime("%Y") %> Tung Nguyen
+Copyright (c) 2018 Tung Nguyen
 
 MIT License
 

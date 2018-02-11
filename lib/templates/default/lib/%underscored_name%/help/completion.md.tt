@@ -1,14 +1,14 @@
 Example:
 
-  <%= project_name %> completion list
+  <%= project_name %> completion
 
 Prints words for TAB auto-completion.
 
 Examples:
 
-  <%= project_name %> completion list
-  <%= project_name %> completion list hello
-  <%= project_name %> completion list hello name
+  <%= project_name %> completion
+  <%= project_name %> completion hello
+  <%= project_name %> completion hello name
 
 To enable, TAB auto-completion add the following to your profile:
 
