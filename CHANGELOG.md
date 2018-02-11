@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project *tries* to adhere to [Semantic Versioning](http://semver.org/), even before v1.0.
 
+## [3.2.0]
+- Merge pull request #2 from tongueroo/basic: the deafult template is a basic Thor CLI instead of the colon_namespaces one.
+- cache eager_load call and handle Thor::InvocationError
+
 ## [3.1.0]
 - Merge pull request #1 from tongueroo/completions: support for TAB auto-completion
 - add completions command to starter project
