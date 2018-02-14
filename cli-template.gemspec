@@ -8,7 +8,6 @@ Gem::Specification.new do |spec|
   spec.version       = CliTemplate::VERSION
   spec.authors       = ["Tung Nguyen"]
   spec.email         = ["tongueroo@gmail.com"]
-  spec.description   = %q{Generate a CLI tool quickly}
   spec.summary       = %q{Generate a CLI tool quickly}
   spec.homepage      = "https://gitub.com/tongueroo/cli-template"
   spec.license       = "MIT"
