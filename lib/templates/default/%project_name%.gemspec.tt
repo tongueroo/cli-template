@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["tongueroo@gmail.com"]
   spec.summary       = "Generated with cli-template tool. Please write a gem summary"
   spec.description   = "Generated with cli-template tool. Write a longer description or delete this line."
-  spec.homepage      = "Generated with cli-template tool. Put your gem's website or public repo URL here."
+  spec.homepage      = ""
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "byebug"
+  spec.add_development_dependency "cli_markdown"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
 end
