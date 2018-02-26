@@ -3,7 +3,7 @@ module <%= project_class_name %>
     class_option :verbose, type: :boolean
     class_option :noop, type: :boolean
 
-    desc "hello NAME", "say hello to NAME"
+    desc "hello NAME", "Say hello to NAME."
     long_desc Help.text(:hello)
     option :from, desc: "from person"
     def hello(name="you")
@@ -15,13 +15,13 @@ module <%= project_class_name %>
     long_desc Help.text(:sub)
     subcommand "sub", Sub
 
-    desc "completion *PARAMS", "prints words for auto-completion"
+    desc "completion *PARAMS", "Prints words for auto-completion."
     long_desc Help.text("completion")
     def completion(*params)
       Completer.new(CLI, *params).run
     end
 
-    desc "completion_script", "generates script that can be eval to setup auto-completion", hide: true
+    desc "completion_script", "Generates a script that can be eval to setup auto-completion."
     long_desc Help.text("completion_script")
     def completion_script
       Completer::Script.generate

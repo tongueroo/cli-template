@@ -68,7 +68,7 @@ Sometimes the commands are not simple thor commands but are subcommands or Thor:
 
 Auto-completion accounts for each of these type of commands.
 =end
-module Ufo
+module <%= project_class_name %>
   class Completer
     autoload :Script, '<%= underscored_name %>/completer/script'
 

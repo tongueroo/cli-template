@@ -12,7 +12,7 @@ Examples:
 
 To enable, TAB auto-completion add the following to your profile:
 
-  eval $(<%= project_name %> completion script)
+  eval $(<%= project_name %> completion_script)
 
 Auto-completion example usage:
 

@@ -27,7 +27,6 @@ module CliTemplate
     end
 
     def make_executable
-      chmod("bin", 0755 & ~File.umask, verbose: false) if File.exist?("bin")
       chmod("exe", 0755 & ~File.umask, verbose: false) if File.exist?("exe")
     end
 

@@ -7,8 +7,5 @@ Signal.trap("INT") {
   exit
 }
 
-$:.unshift(File.expand_path("../../lib", __FILE__))
-require "<%= project_name %>"
-require "<%= underscored_name %>/cli"
-
-<%= project_class_name %>::CLI.start(ARGV)
+require_relative "../lib/<%= project_name %>"
+<%= project_class_name %>::CLI.start
