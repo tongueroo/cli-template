@@ -54,6 +54,7 @@ Congrats 🎉 You have successfully created a CLI project.
 Test the CLI:
 
   cd #{project_name}
+  bundle
   exe/#{project_name} hello       # top-level commands
   exe/#{project_name} sub:goodbye # sub commands
   bundle exec rspec
