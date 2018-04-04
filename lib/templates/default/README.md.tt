@@ -11,10 +11,8 @@ TODO: Write a gem description
 
 ## Usage
 
-```sh
-<%= project_name %> hello yourname
-<%= project_name %> sub:goodbye yourname
-```
+    <%= project_name %> hello yourname
+    <%= project_name %> sub:goodbye yourname
 
 The CLI tool also detects and tasks in the current folder's Rakefile and delegate to those tasks.
 
@@ -22,21 +20,15 @@ The CLI tool also detects and tasks in the current folder's Rakefile and delegat
 
 Add this line to your application's Gemfile:
 
-```sh
-gem "<%= project_name %>"
-```
+    gem "<%= project_name %>"
 
 And then execute:
 
-```sh
-bundle
-```
+    bundle
 
 Or install it yourself as:
 
-```sh
-gem install <%= project_name %>
-```
+    gem install <%= project_name %>
 
 ## Contributing
 
