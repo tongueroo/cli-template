@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 This project *tries* to adhere to [Semantic Versioning](http://semver.org/), even before v1.0.
 
+## [3.4.0]
+- add class Error in generated class
+- add cli_markdown and rake docs task
+- add possible website url reference to cli help
+- change help also available at
+- move common commands to base Command class
+- move version, completion commands back to the CLI class so subcommands dont inherit them
+- override command_help to include description in long_description
+- remove unused completion.rb, fix command_help override
+- use 4 spaces for cli help
+
 ## [3.3.0]
 - fix completer for thor group and use public_instance_methods(false)
 - fix shared new options for thor group and cli
