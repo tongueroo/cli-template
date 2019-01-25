@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 This project *tries* to adhere to [Semantic Versioning](http://semver.org/), even before v1.0.
 
+## [3.5.0]
+- add .circleci/config.yml: circle 2.0 upgrade
+- use rainbow gem for terminal color
+
 ## [3.4.0]
 - add class Error in generated class
 - add cli_markdown and rake docs task
