@@ -1,8 +1,9 @@
-require 'fileutils'
-require 'colorize'
 require 'active_support/core_ext/string'
-require 'thor'
 require 'bundler'
+require 'fileutils'
+require 'rainbow'
+require 'thor'
+require 'rainbow/ext/string'
 
 class CliTemplate::Sequence < Thor::Group
   include Thor::Actions
