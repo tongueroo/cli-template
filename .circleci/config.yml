@@ -7,35 +7,39 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-       - image: circleci/ruby:2.4.1-node-browsers
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
+      - image: circleci/ruby:2.5.3
 
     working_directory: ~/repo
 
     steps:
       - checkout
 
+      - run:
+          name: submodule sync
+          command: |
+            git submodule sync
+            git submodule update --init
+
       # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "Gemfile" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+      # Cannot cache with Gemfile.lock since it is gitignore.
+      # Not caching with Gemfile, would rather not.
+      # - restore_cache:
+      #     keys:
+      #     - v2-dependencies-{{ checksum "Gemfile.lock" }}
+      #     # fallback to using the latest cache if no exact match is found
+      #     - v2-dependencies-
 
       - run:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile" }}
+      # - save_cache:
+      #     paths:
+      #       - ./vendor/bundle
+      #     key: v2-dependencies-{{ checksum "Gemfile.lock" }}
 
+      # test require this
       - run:
           name: configure git
           command: |
@@ -46,8 +50,13 @@ jobs:
       - run:
           name: run tests
           command: |
-            gem install bundler # think need this because the specs shell out
             mkdir /tmp/test-results
+
+            cat >.rspec <<EOL
+            --format documentation
+            --require spec_helper
+            EOL
+
             bundle exec rspec
 
       # collect reports
