@@ -10,10 +10,11 @@ module <%= project_class_name %>
       puts "from: #{options[:from]}" if options[:from]
       puts "Hello #{name}"
     end
-
+<% if options[:subcommand] -%>
     desc "sub SUBCOMMAND", "sub subcommands"
     long_desc Help.text(:sub)
     subcommand "sub", Sub
+<% end -%>
 
     desc "completion *PARAMS", "Prints words for auto-completion."
     long_desc Help.text("completion")

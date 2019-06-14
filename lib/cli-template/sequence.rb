@@ -38,7 +38,34 @@ private
 
   def copy_project
     puts "Creating new project called #{project_name}."
-    directory ".", project_name
+    directory ".", project_name, copy_options
+    if project_name.include?("-")
+      dashed_path = "#{project_name}/lib/#{project_name}.rb"
+      underscored_path = "#{project_name}/lib/#{underscored_name}.rb"
+
+      FileUtils.mv(dashed_path, underscored_path)
+      IO.write(dashed_path, <<~EOL)
+        require "#{underscored_name}"
+      EOL
+    end
+  end
+
+  def copy_options
+    excludes = if @options[:subcommand]
+      []
+    else
+      %w[
+        help/sub
+        sub.rb
+      ]
+    end
+
+    if excludes.empty?
+      {}
+    else
+      pattern = Regexp.new(excludes.join('|'))
+      {exclude_pattern: pattern }
+    end
   end
 
   def git_installed?

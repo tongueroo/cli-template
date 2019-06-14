@@ -70,8 +70,6 @@ Auto-completion accounts for each of these type of commands.
 =end
 module <%= project_class_name %>
   class Completer
-    autoload :Script, '<%= underscored_name %>/completer/script'
-
     def initialize(command_class, *params)
       @params = params
       @current_command = @params[0]

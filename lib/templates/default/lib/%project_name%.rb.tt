@@ -2,13 +2,9 @@ $:.unshift(File.expand_path("../", __FILE__))
 require "<%= underscored_name %>/version"
 require "rainbow/ext/string"
 
+require "<%= underscored_name %>/autoloader"
+<%= project_class_name %>::Autoloader.setup
+
 module <%= project_class_name %>
   class Error < StandardError; end
-
-  autoload :CLI, "<%= underscored_name %>/cli"
-  autoload :Command, "<%= underscored_name %>/command"
-  autoload :Completer, "<%= underscored_name %>/completer"
-  autoload :Completion, "<%= underscored_name %>/completion"
-  autoload :Help, "<%= underscored_name %>/help"
-  autoload :Sub, "<%= underscored_name %>/sub"
 end

@@ -11,6 +11,7 @@ module CliTemplate
         [:repo, desc: "GitHub repo to use. Format: user/repo"],
         [:force, type: :boolean, desc: "Bypass overwrite are you sure prompt for existing files."],
         [:git, type: :boolean, default: true, desc: "Git initialize the project"],
+        [:subcommand, type: :boolean, default: false, desc: "Include subcommand example"],
       ]
     end
 
@@ -56,7 +57,6 @@ Test the CLI:
   cd #{project_name}
   bundle
   exe/#{project_name} hello       # top-level commands
-  exe/#{project_name} sub:goodbye # sub commands
   bundle exec rspec
 
 To publish your CLI as a gem:
