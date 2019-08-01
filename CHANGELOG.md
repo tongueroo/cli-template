@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project *tries* to adhere to [Semantic Versioning](http://semver.org/), even before v1.0.
 
+## [4.0.0]
+- use zeitwerk for autoload
+
 ## [3.5.1]
 - #4 from sco11morgan/move-activesupport-to-dev
 - ensure docs/_includes is created
