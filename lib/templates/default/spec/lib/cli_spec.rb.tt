@@ -11,22 +11,12 @@ describe <%= project_class_name %>::CLI do
       expect(out).to include("from: Tung\nHello world")
     end
 
-    it "goodbye" do
-      out = execute("exe/<%= project_name %> sub goodbye world #{@args}")
-      expect(out).to include("from: Tung\nGoodbye world")
-    end
-
     commands = {
       "hell" => "hello",
       "hello" => "name",
       "hello -" =>  "--from",
       "hello name" => "--from",
       "hello name --" => "--from",
-      "sub goodb" => "goodbye",
-      "sub goodbye" => "name",
-      "sub goodbye name" => "--from",
-      "sub goodbye name --" => "--from",
-      "sub goodbye name --from" => "--help",
     }
     commands.each do |command, expected_word|
       it "completion #{command}" do
