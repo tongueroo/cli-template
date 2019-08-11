@@ -3,7 +3,7 @@
 require 'rubygems'
 
 $:.unshift(File.expand_path('../../lib', __FILE__))
-require 'cli-template'
-require 'cli-template/cli'
+require 'cli_template'
+require 'cli_template/cli'
 
 CliTemplate::CLI.start(ARGV)
