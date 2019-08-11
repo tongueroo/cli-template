@@ -14,25 +14,28 @@ The generated CLI project comes with:
 
 ## Usage
 
-```sh
-cli-template new mycli
-cd mycli
-exe/mycli hello world
-exe/mycli sub:goodbye world # namespaced command with colons
-```
+    cli-template new mycli
+    cd mycli
+    exe/mycli hello world
 
 The above generated a starter CLI project called `mycli` with a working hello command.  The created project also has starter specs for you 😁
 
-```sh
-$ rake
-Mycli::CLI
-  mycli
-    should hello world
-    should goodbye world
+    $ rake
+    Mycli::CLI
+      mycli
+        should hello world
+        should goodbye world
 
-Finished in 1.12 seconds (files took 0.71706 seconds to load)
-2 examples, 0 failures
-```
+    Finished in 1.12 seconds (files took 0.71706 seconds to load)
+    2 examples, 0 failures
+
+### Subcommands
+
+Use the `--subcommand` to have the generator also include a subcommand example.
+
+    cli-template new mycli --subcommand
+    cd mycli
+    exe/foo sub goodbye # subcommand example
 
 ## Release
 
@@ -44,9 +47,7 @@ Once you are satisfied with the CLI tool, you can release it as a gem.
 
 And run:
 
-```
-rake release
-```
+    rake release
 
 When installed as a gem, you no longer have to prepend exe in front of the command.  For example, `exe/mycli` becomes the `mycli` command.
 
@@ -59,11 +60,9 @@ There are 2 different templates that the tool generates from:
 
 To use the different templates:
 
-```
-TEMPLATE=colon_namespaces cli-template new mycli
-TEMPLATE=default cli-template new mycli
-cli-template new mycli # same as TEMPLATE=default
-```
+    TEMPLATE=colon_namespaces cli-template new mycli
+    TEMPLATE=default cli-template new mycli
+    cli-template new mycli # same as TEMPLATE=default
 
 ## Auto Completion
 
@@ -73,13 +72,11 @@ There is support for TAB completion in the newly generated CLI project for the d
 
 Remember to re-load the shell. Note, the auto completion will only work if the cli command is avaialble in your PATH.  You can do this by installing the gem.  You can also create a wrapper bash script that calls to your development cli command like so:
 
-```
-cat > /usr/local/bin/mycli << 'EOL'
-#!/bin/bash
-exec ~/src/mycli/exe/mycli "$@"
-EOL
-chmod a+x /usr/local/bin/mycli
-```
+    cat > /usr/local/bin/mycli << 'EOL'
+    #!/bin/bash
+    exec ~/src/mycli/exe/mycli "$@"
+    EOL
+    chmod a+x /usr/local/bin/mycli
 
 ### Experimental Auto Completion Support for colon_namespaces Template
 
@@ -94,9 +91,7 @@ Suggestions to are appreciated!
 
 ## Installation
 
-```sh
-gem install cli-template
-```
+    gem install cli-template
 
 ## Contributing
 
