@@ -57,8 +57,7 @@ jobs:
             --require spec_helper
             EOL
 
-            # Running w/o bundle exec seems to work. Has something to do with the way circleci sets up bundler?
-            rspec
+            bundle exec rspec
 
       # collect reports
       - store_test_results:

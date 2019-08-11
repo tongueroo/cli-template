@@ -12,10 +12,7 @@ require "#{root}/lib/cli-template"
 module Helper
   def execute(cmd)
     puts "Running: #{cmd}" if show_command?
-    out = nil
-    Bundler.with_clean_env do
-      out = `#{cmd}`
-    end
+    out = `#{cmd}`
     puts out if show_command?
     out
   end

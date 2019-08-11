@@ -45,7 +45,7 @@ private
 
       FileUtils.mv(dashed_path, underscored_path)
       IO.write(dashed_path, <<~EOL)
-        require "#{underscored_name}"
+        require_relative "#{underscored_name}"
       EOL
     end
   end
