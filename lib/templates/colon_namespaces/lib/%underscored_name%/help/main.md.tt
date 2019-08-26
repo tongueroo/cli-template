@@ -1,4 +1,6 @@
-Add -h to any of the commands for more help.  Examples:
+Add -h to any of the commands for more help.
+
+## Examples
 
   <%= project_name %> hello -h
   <%= project_name %> version

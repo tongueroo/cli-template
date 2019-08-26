@@ -1,5 +1,5 @@
-Examples:
+## Examples
 
-  <%= project_name %> sub:goodbye
-  <%= project_name %> sub:goodbye NAME
-  <%= project_name %> sub:goodbye NAME --from me
+    <%= project_name %> sub:goodbye
+    <%= project_name %> sub:goodbye NAME
+    <%= project_name %> sub:goodbye NAME --from me

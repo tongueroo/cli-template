@@ -1,10 +1,8 @@
-Example:
+## Examples
 
     <%= project_name %> completion
 
 Prints words for TAB auto-completion.
-
-Examples:
 
     <%= project_name %> completion
     <%= project_name %> completion hello

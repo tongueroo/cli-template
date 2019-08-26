@@ -1,4 +1,4 @@
-Examples:
+## Examples
 
   <%= project_name %> hello
   <%= project_name %> hello NAME
