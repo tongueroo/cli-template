@@ -3,6 +3,8 @@
 [![CircleCI](https://circleci.com/gh/tongueroo/cli-template.svg?style=svg)](https://circleci.com/gh/tongueroo/cli-template)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c6c4f26aaafccab10baf/maintainability)](https://codeclimate.com/github/tongueroo/cli-template/maintainability)
 
+[![BoltOps Badge](https://img.boltops.com/boltops/badges/boltops-badge.png)](https://www.boltops.com)
+
 `cli-template` is a generator tool that builds a starter CLI project based on [Thor](http://whatisthor.com/). It is the successor tool to [thor_template](https://github.com/tongueroo/thor_template), which is also a tool that generates CLI projects.
 
 The predecessor tool is covered in this original blog post, [Build Thor CLI Project in Under a Second](https://blog.boltops.com/2017/09/14/build-thor-cli-project-in-under-a-second). It covers usage and also contains a video demo.  An updated blog post will eventually be made, for now, refer to the original blog post.
