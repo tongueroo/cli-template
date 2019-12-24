@@ -1,4 +1,4 @@
-ENV["TEST"] = "1"
+ENV["<%= project_name.gsub('-','_').upcase %>_TEST"] = "1"
 
 # CodeClimate test coverage: https://docs.codeclimate.com/docs/configuring-test-coverage
 # require 'simplecov'

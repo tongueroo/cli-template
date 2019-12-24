@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = <%= project_class_name %>::VERSION
   spec.authors       = ["<%= CliTemplate::Git.user_name %>"]
   spec.email         = ["<%= CliTemplate::Git.user_email %>"]
-  spec.summary       = "Generated with cli-template tool. Please write a gem summary"
-  spec.description   = "Generated with cli-template tool. Write a longer description or delete this line."
+  spec.summary       = "Generated with cli-template tool. Please write a gem summary" # TODO: changeme
+  spec.description   = "Generated with cli-template tool. Write a longer description or delete this line." # TODO: changeme
   spec.homepage      = "https://github.com/USERNAME/<%= project_name %>" # TODO: changeme
   spec.license       = ""
 

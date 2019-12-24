@@ -1,10 +1,10 @@
 # <%= project_class_name %>
 
-[![Gem Version](https://badge.fury.io/rb/GEMNAME.png)](http://badge.fury.io/rb/GEMNAME)
-[![CircleCI](https://circleci.com/gh/USER/REPO.svg?style=svg)](https://circleci.com/gh/USER/REPO)
-[![Dependency Status](https://gemnasium.com/USER/REPO.png)](https://gemnasium.com/USER/REPO)
-[![Coverage Status](https://coveralls.io/repos/USER/REPO/badge.png)](https://coveralls.io/r/USER/REPO)
-[![Join the chat at https://gitter.im/USER/REPO](https://badges.gitter.im/USER/REPO.svg)](https://gitter.im/USER/REPO?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gem Version](https://badge.fury.io/rb/<%= project_name %>.png)](http://badge.fury.io/rb/<%= project_name %>)
+[![CircleCI](https://circleci.com/gh/USER/<%= project_name %>.svg?style=svg)](https://circleci.com/gh/USER/<%= project_name %>)
+[![Dependency Status](https://gemnasium.com/USER/<%= project_name %>.png)](https://gemnasium.com/USER/<%= project_name %>)
+[![Coverage Status](https://coveralls.io/<%= project_name %>s/USER/<%= project_name %>/badge.png)](https://coveralls.io/r/USER/<%= project_name %>)
+[![Join the chat at https://gitter.im/USER/<%= project_name %>](https://badges.gitter.im/USER/<%= project_name %>.svg)](https://gitter.im/USER/<%= project_name %>?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Support](https://img.shields.io/badge/get-support-blue.svg)](https://boltops.com?utm_source=badge&utm_medium=badge&utm_campaign=<%= project_name %>)
 
 TODO: Write a gem description
