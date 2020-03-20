@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 This project *tries* to adhere to [Semantic Versioning](http://semver.org/), even before v1.0.
 
+## [4.0.2]
+- add project name in _TEST env var and define exit_on_failure? to remove deprecation
+- ignore Gemfile.lock in starter project
+- remove deprecations: exit_on_failure with_unbundled_env
+- sh mute option for git commands
+
 ## [4.0.1]
 - dynamically get git user name and email in starter project
 - update cli help menus
